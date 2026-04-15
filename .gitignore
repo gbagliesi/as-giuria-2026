@@ -1,0 +1,7 @@
+# File con dati personali — solo in locale
+scripts/generate_tokens.py
+
+# File temporanei macOS
+.DS_Store
+__pycache__/
+*.pyc

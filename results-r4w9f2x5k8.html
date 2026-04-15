@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1a2e">
+  <title>Classifica — Art &amp; Science 2026</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- URL non indicizzato: accesso solo a chi conosce il link -->
+  <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+  <div class="results-header">
+    <h1>Art &amp; Science 2026 · Pisa</h1>
+    <p>Classifica parziale — aggiornamento automatico ogni 60 s</p>
+  </div>
+
+  <div id="results-meta">
+    <span id="n-voted">…</span>
+    <span>Giurati: <strong id="n-giurati">7</strong></span>
+  </div>
+
+  <div style="display:flex; justify-content:space-between; align-items:center;
+              padding:8px 16px; font-size:13px; color:#6b7280;
+              max-width:900px; margin:0 auto;">
+    <span id="last-update">—</span>
+    <button id="btn-refresh"
+      style="background:none;border:1px solid #e5e7eb;border-radius:6px;
+             padding:4px 12px;font-size:13px;cursor:pointer;color:#374151;">
+      ↻ Aggiorna ora
+    </button>
+  </div>
+
+  <p id="results-status" style="text-align:center;color:#c0392b;padding:16px;"></p>
+
+  <div id="results-table-wrap"></div>
+
+  <footer style="text-align:center;padding:24px;font-size:12px;color:#9ca3af;">
+    Art &amp; Science 2026 · Pisa · Votazione giuria
+  </footer>
+
+  <script src="js/results.js"></script>
+</body>
+</html>

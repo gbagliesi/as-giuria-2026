@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1a1a2e">
+  <title>Votazione Giuria — Art &amp; Science 2026</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Impedisce l'indicizzazione dai motori di ricerca -->
+  <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header">
+    <div id="header-top">
+      <span id="site-title">Art &amp; Science 2026 · Pisa</span>
+      <span id="juror-name">…</span>
+    </div>
+    <div id="progress-row">
+      <span id="progress-text">0 / 56 votate</span>
+      <div id="progress-bar"><div id="progress-fill"></div></div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main id="main">
+
+    <!-- Caricamento -->
+    <div id="loading" class="state-message">
+      <p id="loading-msg">Caricamento…</p>
+    </div>
+
+    <!-- Errore -->
+    <div id="error-state" class="state-message" hidden>
+      <h2>Accesso non riuscito</h2>
+      <p id="error-msg"></p>
+    </div>
+
+    <!-- Scheda opera -->
+    <div id="opera-card" hidden>
+
+      <div id="opera-card-header">
+        <span id="opera-number">Opera 1</span>
+        <span id="opera-school"></span>
+      </div>
+
+      <div id="opera-photo-wrap">
+        <img id="opera-photo" src="" alt="Foto opera">
+      </div>
+
+      <div id="opera-body">
+        <h1 id="opera-title"></h1>
+        <p  id="opera-authors"></p>
+        <div id="opera-description-wrap">
+          <p id="opera-description"></p>
+          <button id="btn-expand">Mostra tutto</button>
+        </div>
+      </div>
+
+      <!-- Criteri di voto (generati da JS) -->
+      <div id="criteria"></div>
+
+      <div id="save-status"></div>
+
+    </div><!-- /opera-card -->
+
+  </main>
+
+  <!-- ===== NAVIGATION BAR ===== -->
+  <nav id="nav-bar" hidden>
+    <button id="btn-overview" class="nav-btn" title="Panoramica opere">&#9776;</button>
+    <button id="btn-prev"     class="nav-btn" title="Opera precedente">&#8249;</button>
+    <span   id="nav-counter">1 / 56</span>
+    <button id="btn-next"     class="nav-btn" title="Opera successiva">&#8250;</button>
+    <div style="width:48px"></div><!-- placeholder per simmetria -->
+  </nav>
+
+  <!-- ===== OVERVIEW MODALE ===== -->
+  <div id="overview-overlay" hidden onclick="if(event.target===this)closeOverview()">
+    <div id="overview-panel">
+      <h3>
+        Panoramica opere
+        <button id="btn-close-overview" onclick="closeOverview()">&#x2715;</button>
+      </h3>
+      <div id="overview-grid"></div>
+    </div>
+  </div>
+
+  <script src="js/voting.js"></script>
+</body>
+</html>

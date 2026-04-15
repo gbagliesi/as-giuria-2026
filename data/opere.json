@@ -1,0 +1,722 @@
+[
+  {
+    "n": 1,
+    "titolo": "Veloce come la luce",
+    "descrizione": "Il detto correre veloce come la luce è stato preso un po’ troppo alla lettera dal nostro velocista. Quando un corpo si avvicina molto alla velocità della luce (senza ovviamente raggiungerla) avviene il fenomeno della contrazione delle lunghezze. Visto dagli occhi di uno spettatore sugli spalti, questo fenomeno si manifesta come un rimpicciolirsi del corridore, sempre più accentuato all’aumentare della sua velocità. Questo evento mostra come anche una cosa invisibile come la velocità di un corpo e la relatività dei sistemi di riferimento porti a conseguenze tangibili e evidenti, chiaramente se a velocità elevatissime, creando una profonda relazione tra ciò che è visibile e ciò che è invisibile.",
+    "scuola": "Liceo Barsanti e Matteucci, Viareggio",
+    "campionato_max": 21.0,
+    "nomi_autori": [
+      "Matteo Simoni",
+      "Andrea Bellucci",
+      "Michele Traversa"
+    ],
+    "photo": "01_PXL_20260414_150941961.MP.jpg"
+  },
+  {
+    "n": 2,
+    "titolo": "Anatomia del Sentimento",
+    "descrizione": "Il progetto consiste in un modellino artistico di un cervello, in cui ogni area rappresenta un ormone diverso — come serotonina, dopamina, ossitocina e altri. Le varie regioni sono realizzate con materiali differenti, scelti in base alle sensazioni evocate da ciascun ormone: texture morbide e rassicuranti, superfici luminose o vibranti, elementi più ruvidi o intricati. L’insieme crea una mappa sensoriale e visiva che traduce gli effetti degli ormoni in forme e materiali, trasformando la neurochimica in un’esperienza tattile ed espressiva.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 22.0,
+    "nomi_autori": [
+      "Alessandra Romeo",
+      "Sara Rizzuto",
+      "Vita Di Cesare"
+    ],
+    "photo": "02_PXL_20260414_140858939.jpg"
+  },
+  {
+    "n": 3,
+    "titolo": "Cellula animale in 3D",
+    "descrizione": "Creazione di un modellino della cellula animale utilizzando una sfera di polistirolo come struttura di base, perché la sua forma sferica rappresenta bene la forma della cellula. È stato tagliato un quarto di sfera in modo da vedere la cellula in sezione, consentendo così di osservarne l’interno. Gli organuli cellulari sono creati con plastilina colorata, usando colori diversi per distinguerli facilmente.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 12.0,
+    "nomi_autori": [
+      "Lucrezia Gilioli",
+      "Elena Scalsini",
+      "Ruken Kilinc"
+    ],
+    "photo": "03_PXL_20260414_140715166.MP.jpg"
+  },
+  {
+    "n": 4,
+    "titolo": "Collana Planetaria",
+    "descrizione": "Collana in legno ispirata al sistema solare, pensata come opera d’arte indossabile. I pianeti sono rappresentati in forma tridimensionale e disposti in ordine attorno alla collana. Il lavoro unisce scienza e arte, trasformando lo studio dell’astronomia in un oggetto creativo ed espressivo.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 11.0,
+    "nomi_autori": [
+      "Lapo Conti",
+      "Matteo Lorenzini",
+      "Christian Chiellini"
+    ],
+    "photo": "04_PXL_20260414_140356774.MP.jpg"
+  },
+  {
+    "n": 5,
+    "titolo": "Costellazioni e legami umani",
+    "descrizione": "L’opera rappresenta il legame profondo tra l’uomo e l’universo. Come gli antichi tracciavano linee tra le stelle per dare vita a figure come Cassiopea, l’Orsa Maggiore e il Cigno, così l’opera unisce punti luminosi che simboleggiano persone. I fili che collegano queste “stelle” evocano relazioni, conoscenza e interazioni umane, mostrando come ogni individuo sia parte di una rete più grande. Il cielo notturno diventa così metafora dell’umanità: un insieme di luci diverse, unite da legami invisibili che danno forma al nostro mondo.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 22.0,
+    "nomi_autori": [
+      "Matilde Lucherini",
+      "Chiara Raffaelli",
+      "Gaia Gamanets"
+    ],
+    "photo": "05_PXL_20260414_140256410.MP.jpg"
+  },
+  {
+    "n": 6,
+    "titolo": "EX VOTO",
+    "descrizione": "Un cuore anatomico, crudo e sacro, sospeso come un ex voto contemporaneo. Intorno, aghi e siringhe irradiano dolore e cura, mentre una lampada chirurgica diventa aureola: la scienza al posto del miracolo. L’ovale verde incornicia il sacrificio, trasformando il corpo in reliquia moderna. Fede, medicina e sofferenza si fondono in un’icona potente, dove la guarigione è atto umano e rituale insieme.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 6.0,
+    "nomi_autori": [
+      "Margherita Schiavo Nardini",
+      "Gabriele De Filippis"
+    ],
+    "photo": "06_PXL_20260414_140402021.MP.jpg"
+  },
+  {
+    "n": 7,
+    "titolo": "Energia del Futuro",
+    "descrizione": "L’opera rappresenta il passaggio dalle fonti fossili a quelle rinnovabili. La metà sinistra, scura e ruvida, simboleggia carbone, fumi e il peso dell’energia tradizionale. La metà destra, luminosa e pulita, mostra sagome stilizzate di pale eoliche che generano 'energia invisibile', resa con colori perlacei e fluorescenze UV. Il contrasto fra le due parti evidenzia il cambiamento in atto: l’energia pulita che avanza e illumina il futuro. L’opera utilizza forme astratte per tradurre un concetto scientifico chiaro: la transizione energetica verso sistemi sostenibili.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 23.0,
+    "nomi_autori": [
+      "Alessio Tordiglione",
+      "Davide Quattrini",
+      "Tommaso Badalassi"
+    ],
+    "photo": "07_PXL_20260414_140550389.jpg"
+  },
+  {
+    "n": 8,
+    "titolo": "I Moffizi",
+    "descrizione": "L’opera rappresenta un MOF (Metal-organic Framework) che è una sorta di magazzino poroso che può contenere i gas. Il MOF è costituito da materiali cristallini composti da ioni metallici e leganti organici. I fili posti su file sfalsate creano una rete che ricorda le porosità del MOF. Sopra i fili sono poste delle miniature di opere, presenti al museo degli Uffizi di Firenze, che rappresentano le particelle di un ipotetico gas contenuto nel MOF. (Da qui il nome Moffizi)",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 21.5,
+    "nomi_autori": [
+      "Filippo Gazzotti",
+      "Lorenzo Samaritani",
+      "Luca Pinzauti"
+    ],
+    "photo": "08_PXL_20260414_140948419.MP.jpg"
+  },
+  {
+    "n": 9,
+    "titolo": "Il clone",
+    "descrizione": "Uno specchio e una statuetta mostrano come realtà e immagine si sdoppino. Nel riflesso la figura appare identica ma impalpabile, evocando la clonazione: un organismo può nascere copiando il DNA dell’originale, il codice che contiene le istruzioni della vita. Dalle ricerche del Novecento fino a Dolly, la clonazione è divenuta strumento per medicina rigenerativa, conservazione delle specie e studio delle malattie. Come il riflesso non sostituisce l’oggetto, così un clone dipende dal suo modello: simile ma mai del tutto identico, e proprio questa distanza rivela l’unicità dell’originale.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 19.5,
+    "nomi_autori": [
+      "Gianluca Ambrogio",
+      "Alice Rossi",
+      "Simone Celia"
+    ],
+    "photo": "09_PXL_20260414_141058825.MP.jpg"
+  },
+  {
+    "n": 10,
+    "titolo": "Immagine creata con AI",
+    "descrizione": "Immagine creata con AI che rappresenta due atomi antropomorfizzati che si fronteggiano e si uniscono: le orbite elettroniche luminose, una calda e una fredda, si incontrano al centro, simbolo di legame e interazione energetica.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 17.0,
+    "nomi_autori": [
+      "Arfja Asimi",
+      "Lorenzo Bascià",
+      "Armando Paradiso"
+    ],
+    "photo": "10_PXL_20260414_140350050.MP.jpg"
+  },
+  {
+    "n": 11,
+    "titolo": "L’Abbraccio Invisibile",
+    "descrizione": "Una foto scattata con una telecamera termica che inquadra un abbraccio tra due persone. L’opera prende il nome dall’invisibilità dei raggi infrarossi all’occhio umano. Ciò che la vista non può cogliere viene trovato nella foto: il calore dell’abbraccio emerge come soggetto principale, trasformando l’intimità in immagine. L’abbraccio diventa così un atto percepibile solo attraverso i colori caldi e freddi della telecamera, suggerendo che le connessioni più autentiche esistono oltre il visibile.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 20.0,
+    "nomi_autori": [
+      "Andrea Scribano",
+      "Lorenzo Sbrana",
+      "Achille Ghelarducci"
+    ],
+    "photo": "11_PXL_20260414_140521482.MP.jpg"
+  },
+  {
+    "n": 12,
+    "titolo": "L’architettura della vita",
+    "descrizione": "Questo progetto reinterpreta la struttura a doppia elica del DNA attraverso il ciclo pittorico della Cappella Sistina. Le eliche portanti, costituite da desossiribosio e gruppi fosfato, sono state decorate con le immagini dei lati destro e sinistro della volta, raffiguranti i Profeti e le Sibille. Per quanto riguarda i pioli centrali, si è scelto di differenziare le basi azotate utilizzando i momenti salienti della Genesi: l’unione Adenina-Timina è visualizzata tramite la “Creazione degli astri”, mentre il legame Guanina-Citosina trova espressione nella “Creazione di Adamo”, stabilendo un parallelismo tra l’origine del codice genetico e l’origine dell’umanità nell’arte. In conclusione l’unione tra la doppia elica e gli affreschi michelangioleschi dimostra come scienza e arte tendano allo stesso obiettivo: comprendere l’origine dell’uomo. Quest’opera invita dunque l’osservatore a guardare alla biologia con lo stesso stupore con cui, da secoli, l’umanità ammira la volta della Cappella Sistina.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 22.0,
+    "nomi_autori": [
+      "Rebecca Pennasilico",
+      "Letizia Rosselli",
+      "Lucrezia Marinari"
+    ],
+    "photo": "12_PXL_20260414_140502295.MP.jpg"
+  },
+  {
+    "n": 13,
+    "titolo": "La Simmetria che si spezza",
+    "descrizione": "L’opera rappresenta il concetto scientifico di entropia, cioè la tendenza naturale dei sistemi a passare dall’ordine al disordine. La metà sinistra mostra forme geometriche semplici, allineate e stabili: simbolo di un sistema a bassa entropia, dove ogni elemento è prevedibile e organizzato. La metà destra ripropone gli stessi elementi, ma intrecciati, sovrapposti e caotici, evocando l’aumento del disordine tipico dei processi spontanei in natura. L’idea artistica è visualizzare, in un’unica immagine, il passaggio dall’ordine al caos come metafora del comportamento dei sistemi fisici.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 24.0,
+    "nomi_autori": [
+      "Marcello Rosso",
+      "Federico Catozzi",
+      "Zeno D’Angella"
+    ],
+    "photo": "13_PXL_20260414_141119848.MP.jpg"
+  },
+  {
+    "n": 14,
+    "titolo": "La forma dell’ombra",
+    "descrizione": "Scultura tridimensionale che cambia percezione in base al punto di vista. Ruotando l’opera, la struttura rivela alternativamente la forma di una farfalla e quella di una molecola di H₂O. Ciò che appare non è immediato, ma si manifesta attraverso il movimento, le ombre e la relazione con la luce. L’opera riflette sul rapporto tra visibile e invisibile, mostrando come forme diverse possano emergere dalla stessa struttura a seconda dell’osservazione.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 22.5,
+    "nomi_autori": [
+      "Giuseppe Gurciullo",
+      "Leonardo Materazzi",
+      "Gabriele Moggi"
+    ],
+    "photo": "14_PXL_20260414_140438545.MP.jpg"
+  },
+  {
+    "n": 15,
+    "titolo": "La materia della bellezza",
+    "descrizione": "L’opera rappresenta un percorso che parte da un atomo e arriva gradualmente alla Monna Lisa. All’inizio viene mostrata la struttura microscopica della materia, che attraverso vari passaggi si unisce e si trasforma fino a diventare qualcosa di visibile e riconoscibile. L’atomo diventa materia, la materia forma l’immagine e infine nasce un’opera d’arte. In questo modo il progetto mette in relazione scienza e arte, mostrando come anche le opere più famose siano costruite a partire da elementi invisibili e scientifici. L’obiettivo è far capire che arte e scienza non sono mondi separati, ma due aspetti dello stesso processo che porta dalla materia alla bellezza.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 21.0,
+    "nomi_autori": [
+      "Gulio Esposito",
+      "Theo Franco Bocchiola",
+      "Erica Vannozzi"
+    ],
+    "photo": "15_PXL_20260414_140344646.MP.jpg"
+  },
+  {
+    "n": 16,
+    "titolo": "Lo scudo invisibile che difende la Terra",
+    "descrizione": "La Terra è costantemente colpita dai venti solari, flussi di particelle cariche emesse dal Sole. Ciò che rende possibile la vita sul nostro pianeta è un campo magnetico invisibile, generato dal movimento del ferro liquido nel nucleo terrestre. Questo progetto rappresenta, attraverso un modellino 3D stampato a colori, il campo magnetico terrestre e la sua funzione di scudo naturale, che devia le particelle solari e protegge l’atmosfera, le tecnologie e la vita sulla Terra. L’opera rende visibile ciò che normalmente non lo è, trasformando un fenomeno fisico astratto in una forma artistica concreta.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 18.0,
+    "nomi_autori": [
+      "Marco Brando",
+      "Gioele Fiaschi",
+      "Diego Belcore"
+    ],
+    "photo": "16_PXL_20260414_140320315.MP_2.jpg"
+  },
+  {
+    "n": 17,
+    "titolo": "L’ombra del gigante",
+    "descrizione": "L’opera si ispira al concetto di materia oscura, che costituisce gran parte dell’universo ma resta invisibile perché non emette né riflette luce. La sua presenza è dedotta dagli effetti gravitazionali sulla materia visibile. La struttura, caotica e composta da rami e fili, appare insignificante, ma illuminata proietta l’ombra ordinata di una galassia a spirale. L’opera mostra come la scienza permetta di rivelare l’invisibile attraverso le sue manifestazioni indirette, svelando un ordine nascosto nell’universo.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 19.0,
+    "nomi_autori": [
+      "Francesco Pelosi",
+      "Lorenzo Bertini",
+      "Tommaso Mosca"
+    ],
+    "photo": "17_PXL_20260414_140958544.MP.jpg"
+  },
+  {
+    "n": 18,
+    "titolo": "L’universo in una scatola",
+    "descrizione": "Un piccolo contenitore che racchiude l’immensità del cosmo: l’interno, dipinto di nero, è illuminato da minuscole luci che simulano stelle in formazione, mentre fili metallici e spirali rappresentano galassie in espansione. L’opera richiama il momento originario del Big Bang, suggerendo come da un punto infinitamente denso sia nato tutto ciò che conosciamo. Leggera e facilmente trasportabile, la scatola diventa una finestra portatile sull’evoluzione dell’universo.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 20.5,
+    "nomi_autori": [
+      "Greta Bendinelli",
+      "Lisa Felloni",
+      "Cristina Benvenuto"
+    ],
+    "photo": "18_PXL_20260414_140736159.MP.jpg"
+  },
+  {
+    "n": 19,
+    "titolo": "Pezzi di Noi",
+    "descrizione": "L’opera nasce da una tela dipinta di nero su cui sono sparsi dei frammenti di specchio. Tra le superfici riflettenti e le crepe nere che le separano ci sono delle tracce di farina. Quando una persona si sente e si vede a pezzi, la via più semplice può sembrare la droga. Lo specchio frammentato ha l’intento di rappresentare un’identità spezzata; la tela nera rappresenta invece il vuoto interiore, e le tracce di farina un tentativo di riempire o coprire questo vuoto attraverso la droga. La depressione e la droga influenzano profondamente il funzionamento del nostro corpo e il modo in cui ci percepiamo.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 22.67,
+    "nomi_autori": [
+      "Tuqa Khalil",
+      "Sofia Casacci",
+      "Daria Mammini"
+    ],
+    "photo": "19_PXL_20260414_140251103.MP.jpg"
+  },
+  {
+    "n": 20,
+    "titolo": "Sinapsi del Cosmo",
+    "descrizione": "“Sinapsi del Cosmo” rappresenta il legame tra essere umano e universo attraverso un linguaggio artistico-scientifico. Il cuore umano, inteso come centro vitale e simbolico, è raffigurato come una rete di connessioni luminose che richiamano le sinapsi cerebrali e le strutture delle costellazioni. Vene e arterie si trasformano in orbite, mentre i punti luminosi simboleggiano stelle e impulsi nervosi. L’opera evidenzia come le stesse leggi di connessione, energia e movimento regolino sia il corpo umano sia il cosmo, proponendo una riflessione visiva sull’unità tra arte, scienza e conoscenza. L’arte diventa così un linguaggio capace di rendere visibile l’invisibile, trasformando il sapere scientifico in emozione.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 13.0,
+    "nomi_autori": [
+      "Ersi Sallaj",
+      "Yasmin Amdiaze"
+    ],
+    "photo": "20_PXL_20260414_140506197.MP.jpg"
+  },
+  {
+    "n": 21,
+    "titolo": "Sinfonia Genetica",
+    "descrizione": "Il progetto rappresenta il DNA come un linguaggio paragonabile alla musica, unendo scienza e arte. Su una base di legno è costruita una doppia elica formata da due fili di ferro rivestiti con tubi di plastica. Su un filamento sono presenti strumenti musicali in miniatura, mentre sull’altro sono riportate le lettere delle basi del DNA (A, T, C, G). I due filamenti sono collegati da corde di chitarra, che richiamano sia i legami tra le basi sia il mondo musicale. Il modellino vuole mostrare come, proprio come la musica, anche il DNA sia basato su sequenze, ordine e armonia.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 21.0,
+    "nomi_autori": [
+      "Vittoria Storti",
+      "Elena Massai",
+      "Anna Chiara Penna"
+    ],
+    "photo": "21_PXL_20260414_140726969.MP.jpg"
+  },
+  {
+    "n": 22,
+    "titolo": "Spirale della Vita",
+    "descrizione": "Spirale (tipo DNA) della vita, composta da materiali riciclati come rame, carta, fili di ferro, pezzi di vetro, componenti hardware di scarto, plastica e altri materiali di scarto.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 21.0,
+    "nomi_autori": [
+      "Lorenzo Terreni",
+      "Andrea Concordia",
+      "Antonio Madonna"
+    ],
+    "photo": "22_PXL_20260414_141105529.MP.jpg"
+  },
+  {
+    "n": 23,
+    "titolo": "Trame di luce",
+    "descrizione": "L’opera è una rete di fili metallici intrecciati a forma di cervello, dove la luce anima il pensiero. In questa struttura, i due lobi mostrano le diverse anime dell’essere umano. Un lato è avvolto da luci LED bianche, fisse e costanti, che rappresentano la parte logica, l’ordine e il ragionamento. L’altro lobo, invece, esplode con LED colorati e dinamici, simbolo della nostra parte creativa, dell’immaginazione e delle emozioni. Insieme, queste due metà creano una rete viva che brilla nel buio, raccontando come logica e fantasia si uniscano per dare vita a ogni nostra idea.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 21.0,
+    "nomi_autori": [
+      "Maria Sofia De Vitis",
+      "Noemi Testagrossa",
+      "Matilde Gagliardi"
+    ],
+    "photo": "23_PXL_20260414_140542824.jpg"
+  },
+  {
+    "n": 24,
+    "titolo": "Viaggio nel Sistema Solare",
+    "descrizione": "L’opera rappresenta un modellino tridimensionale del Sistema Solare, realizzato usando una stampante 3D con finalità divulgative e artistiche. I pianeti sono disposti in ordine dal Sole e differenziati per dimensioni e colori, così da evidenziare le caratteristiche principali di ciascun corpo celeste. Con l’utilizzo della stampante 3D vogliamo dare tridimensionalità all’opera permettendo di comprendere meglio le proporzioni e la struttura del nostro sistema planetario, unendo creatività manuale e conoscenze scientifiche. Il lavoro nasce dall’incontro tra arte e scienza, con l’obiettivo di rendere l’astronomia accessibile, visiva e coinvolgente.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 20.0,
+    "nomi_autori": [
+      "Sara Silvestro",
+      "Nalo Jazaj",
+      "Marco Lunardi"
+    ],
+    "photo": "24_PXL_20260414_140326611.MP.jpg"
+  },
+  {
+    "n": 25,
+    "titolo": "Fusione del destino",
+    "descrizione": "Questa immagine dello scontro tra stelle funziona perché unisce fisica, simbolo ed emozione in un unico istante visivo. Dal punto di vista scientifico rappresenta uno degli eventi più estremi dell’universo: due corpi di massa immensa che, collidendo, liberano un’energia inconcepibile. Non è solo distruzione, ma trasformazione, perché dalla fusione nascono elementi più pesanti e nuove strutture cosmiche. Sul piano simbolico, lo scontro diventa metafora del conflitto umano: forze opposte, caos e dolore che non portano all’annullamento, ma al cambiamento. La frase “Dallo scontro nasce l’eternità” racchiude questo passaggio. Visivamente, il contrasto tra freddo e caldo, ordine e caos coinvolge lo spettatore in modo quasi fisico.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 20.0,
+    "nomi_autori": [
+      "Giulia Vannini",
+      "Alessandro Grandoni",
+      "Federico Griffo"
+    ],
+    "photo": "25_PXL_20260414_140613904.jpg"
+  },
+  {
+    "n": 26,
+    "titolo": "Gli occhi della scienza",
+    "descrizione": "Un radar capace di calcolare distanze e la posizione di oggetti che lo circondano grazie a onde radio. Una parte del progetto è realizzata con Arduino, che calcola e processa i dati, restituendo valori esatti.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 20.0,
+    "nomi_autori": [
+      "Lorenzo Nanni",
+      "Edoardo Daini",
+      "Mattia Gelli"
+    ],
+    "photo": "26_PXL_20260414_140645904.MP.jpg"
+  },
+  {
+    "n": 27,
+    "titolo": "L’illusione dell’infinito",
+    "descrizione": "In questo progetto abbiamo reinterpretato l’“Urlo” di Munch: la bocca della figura si trasforma in un buco, simbolo dell’ignoto cosmico, mentre lo sfondo richiama lo spazio profondo. L’opera crea un dialogo tra emozione umana e fisica dell’universo, fondendo l’angoscia esistenziale con i misteri dell’astrofisica per invitare a riflettere su paura, infinito e conoscenza.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 20.0,
+    "nomi_autori": [
+      "Mia Masetti",
+      "Elettra Morelli",
+      "Sarah Bargagna"
+    ],
+    "photo": "27_PXL_20260414_141018941.MP.jpg"
+  },
+  {
+    "n": 28,
+    "titolo": "Vocazione di San Matteo",
+    "descrizione": "Abbiamo deciso di rivisitare la “Vocazione di San Matteo” del Caravaggio, dove in questo caso la vocazione riguarda il Sole, nel cambiamento di ideologia dalla teoria geocentrica a quella eliocentrica. San Matteo, abbiamo quindi detto essere il Sole, circondato dagli altri pianeti più o meno interessati tra cui la Terra, mentre Gesù è Galileo Galilei accompagnato dal matematico Copernico nelle vesti di San Pietro.",
+    "scuola": "Liceo Scientifico Statale Buonarroti, Pisa",
+    "campionato_max": 18.5,
+    "nomi_autori": [
+      "Edoardo Luperini",
+      "Giada Briganti"
+    ],
+    "photo": "28_PXL_20260414_140934782.MP.jpg"
+  },
+  {
+    "n": 29,
+    "titolo": "DNA di un paesaggio",
+    "descrizione": "L’opera mostra una doppia elica di DNA che si apre e si trasforma in un paesaggio naturale. Le componenti della molecola diventano elementi della natura, creando un collegamento visivo tra il mondo invisibile della biologia e quello visibile della vita quotidiana. Dal punto di vista scientifico il DNA rappresenta il codice della vita, contiene le informazioni necessarie per il funzionamento di ogni organismo. L’apertura dell’elica richiama i processi attraverso i quali queste trasformazioni vengono utilizzate per generare nuove forme viventi. L’opera diventa un ponte tra scienza e arte, mostrando che conoscere la vita significa anche saperne cogliere la bellezza.",
+    "scuola": "Liceo Internazionale Quadriennale, Lucca",
+    "campionato_max": 14.0,
+    "nomi_autori": [
+      "Ginevra Gilardino",
+      "Matilde Mallegni",
+      "Giulia De Luca"
+    ],
+    "photo": "29_PXL_20260414_141004842.MP.jpg"
+  },
+  {
+    "n": 30,
+    "titolo": "Geometrie di Zefiro",
+    "descrizione": "L’opera nasce dall’interazione tra fenomeni fisici naturali e movimento meccanico. Diversi colori, sospesi a un pendolo, si sono distribuiti sul foglio mentre il vento ne induceva l’oscillazione. Il vento è aria in movimento generata da differenze di temperatura e pressione atmosferica: questa forza avvia un moto oscillatorio periodico. Tuttavia, l’imprevedibilità delle correnti modifica il movimento, rendendolo irregolare. I colori tracciano così traiettorie casuali, risultato dell’azione combinata di gravità, inerzia e turbolenza dell’aria.",
+    "scuola": "Liceo Internazionale Quadriennale, Lucca",
+    "campionato_max": 12.0,
+    "nomi_autori": [
+      "Luna Coluccini",
+      "Niccolò Cardini"
+    ],
+    "photo": "30_PXL_20260414_140338185.MP.jpg"
+  },
+  {
+    "n": 32,
+    "titolo": "Linee di emozione",
+    "descrizione": "L’opera esplora la comunicazione umana come fenomeno osservabile e misurabile, in cui voce ed emozione si scompongono e si traducono visivamente in flussi di onde e diversi campi cromatici, rendendo percepibile ciò che normalmente resta immateriale. I tre profili delineano modalità espressive dal silenzio, inteso come assenza di emissione sonora, una comunicazione controllata ed equilibrata, fino a una forma intensa, instabile e caotica. Le linee mostrano la variazione evolvendo da una struttura continua e ordinata a una frammentata e aggrovigliata. Il colore amplifica il cambiamento, sottolineando come il coinvolgimento emotivo incida sulla variazione di intensità.",
+    "scuola": "Liceo Internazionale Quadriennale, Lucca",
+    "campionato_max": 20.0,
+    "nomi_autori": [
+      "Bianca Vultaggio",
+      "Noemi Pini",
+      "Gemma Giovannelli"
+    ],
+    "photo": "32_PXL_20260414_141128832.MP.jpg"
+  },
+  {
+    "n": 33,
+    "titolo": "Luce negli Abissi",
+    "descrizione": "L’opera rappresenta un ambiente delle profondità marine, dove la luce solare non riesce a penetrare perché viene progressivamente assorbita dall’acqua. In queste condizioni estreme alcuni organismi producono bioluminescenza, un fenomeno biologico basato su reazioni chimiche che generano luce. Questa capacità è un adattamento alla vita negli abissi. L’immagine rielabora scientificamente il tema in chiave creativa: gli animali bioluminescenti popolano e illuminano una città immaginaria sul fondo dell’oceano, trasformando un fenomeno naturale in elemento narrativo e visivo.",
+    "scuola": "Liceo Internazionale Quadriennale, Lucca",
+    "campionato_max": 19.0,
+    "nomi_autori": [
+      "Giada Zhao",
+      "Lucia Sedgwick-Lee",
+      "Simone Tizzano"
+    ],
+    "photo": "33_PXL_20260414_141111988.MP.jpg"
+  },
+  {
+    "n": 34,
+    "titolo": "L’universo irrazionale",
+    "descrizione": "L’opera che vogliamo rappresentare è un dipinto che fonde il post-impressionismo con le leggi della fisica. Rappresenta una visione astratta dell’Universo in cui lo stile turbolento di Van Gogh diventa lo strumento per visualizzarla. Il nero del cosmo prende vita attraverso vortici di colore che richiamano il movimento delle galassie. Una micro-scrittura fitta e continua delle cifre del pi compone le nebulose e le stelle. Da lontano l’occhio percepisce l’energia e il caos del cielo, ma avvicinandosi scopre che è in realtà un codice numerico infinito. Un sistema che appare caotico e imprevedibile, come i flussi di Van Gogh, è in realtà governato da costanti universali.",
+    "scuola": "Liceo Internazionale Quadriennale, Lucca",
+    "campionato_max": 21.0,
+    "nomi_autori": [
+      "Jessy Chen",
+      "Carlotta Signorini",
+      "Margarita Evstigneeva"
+    ],
+    "photo": "34_PXL_20260414_140516692.MP.jpg"
+  },
+  {
+    "n": 35,
+    "titolo": "Memorie in caduta",
+    "descrizione": "L’opera rappresenta l’Alzheimer attraverso la metafora di un buco nero. Come un corpo cosmico che attrae e inghiotte tutto ciò che lo circonda, il buco nero simboleggia la progressiva perdita dei ricordi causata dalla malattia. L’immagine rende visibile un processo invisibile: il lento svuotamento della memoria, la frammentazione del passato e la difficoltà di riconoscere sé stessi e il mondo.",
+    "scuola": "Liceo Internazionale Quadriennale, Lucca",
+    "campionato_max": 13.5,
+    "nomi_autori": [
+      "Francesca Diamanti",
+      "Margherita Foddai",
+      "Flavia Vezzoso"
+    ],
+    "photo": "35_PXL_20260414_140907180.jpg"
+  },
+  {
+    "n": 36,
+    "titolo": "Orologi senza tempo",
+    "descrizione": "“Orologi senza tempo” esplora la relatività e la percezione soggettiva del tempo. Scientificamente, l’opera si rifà alla teoria di Einstein: il tempo non è un valore assoluto, ma una dimensione elastica che muta con gravità e movimento. Esteticamente, questa fluidità si traduce in quadranti deformati, sospesi o dilatati, che perdono la loro funzione di misura oggettiva per farsi simboli di un flusso instabile. Sebbene il richiamo agli orologi molli di Dalí sia evidente, l’approccio qui è più contemporaneo e fisico che onirico. L’installazione invita a riflettere su come il tempo, influenzato da forze invisibili, non sia solo un dato numerico, ma un’esperienza individuale capace di piegarsi, sfidando ogni confine tradizionale.",
+    "scuola": "Liceo Internazionale Quadriennale, Lucca",
+    "campionato_max": 22.0,
+    "nomi_autori": [
+      "Selin Cinelli",
+      "Marco Gigli",
+      "Allegra Ashley Cecchini"
+    ],
+    "photo": "36_PXL_20260414_140408239.MP.jpg"
+  },
+  {
+    "n": 37,
+    "titolo": "Realtà oltre la vista",
+    "descrizione": "L’opera confronta quattro modalità di percezione visiva, mostrando come la struttura della retina condizioni la visione. Abbiamo rielaborato la serie di ritratti di Marilyn Monroe di Andy Warhol (1962) in quattro versioni: visione normale, daltonismo (protanopia, deuteranopia, tritanopia), miopia e nistagmo. Il confronto evidenzia come le alterazioni retiniche modifichino colori, contrasti e nitidezza. La visione normale dipende dai coni sensibili a rosso, verde e blu; la loro assenza causa discromatopsie. La miopia sfoca i dettagli, il nistagmo rende l’immagine instabile. L’arte diventa così strumento scientifico.",
+    "scuola": "Liceo Internazionale Quadriennale, Lucca",
+    "campionato_max": 19.0,
+    "nomi_autori": [
+      "Sofia Sforzi",
+      "Nicole Menicucci",
+      "Camilla Olivia Turri"
+    ],
+    "photo": "37_PXL_20260414_141040574.MP.jpg"
+  },
+  {
+    "n": 38,
+    "titolo": "Turbinio d’emozioni",
+    "descrizione": "L’opera invita l’osservatore a perdersi nelle curve del disegno, proprio come ci si perde nel flusso incessante dei propri stati d’animo, dove ogni linea rappresenta un ricordo, un desiderio o una paura che si intreccia con le altre...",
+    "scuola": "Liceo Internazionale Quadriennale, Lucca",
+    "campionato_max": 20.5,
+    "nomi_autori": [
+      "Leonardo Luca Allegrini",
+      "Andy Lin"
+    ],
+    "photo": "38_PXL_20260414_141029825.MP.jpg"
+  },
+  {
+    "n": 39,
+    "titolo": "Ad pondus omnium",
+    "descrizione": "Opera che usa tecniche quali la pittura e il collage per rappresentare la storia e l’evoluzione della Fisica. È suddivisa in 4 parti che rappresentano ognuna uno stadio della disciplina: fisica classica, fisica quantistica, fisica della relatività, fisica del futuro. In ognuna di queste parti è presente un oggetto rappresentante quell’ambito. Rispettivamente: un pendolo, l’atomo di Bohr, un orologio curvato / deformato e un gatto a cui girano intorno delle particelle. Ogni parte ha come sfondo un colore diverso: rosa, viola, blu, nero, e si susseguono in modo temporale. Inoltre nelle prime tre parti è scritta sopra il colore e sotto l’oggetto la funzione lagrangiana del modello standard.",
+    "scuola": "Liceo XXV Aprile, Pontedera",
+    "campionato_max": 0,
+    "nomi_autori": [
+      "Leonardo Cavallini",
+      "Francesco Gennai",
+      "Brando Pieraccioni"
+    ],
+    "photo": "39_PXL_20260414_140814304.MP.jpg"
+  },
+  {
+    "n": 40,
+    "titolo": "Galassia atomica",
+    "descrizione": "L’idea è quella di rappresentare, all’interno di una scatola con sfondo nero, il modellino di un atomo dettagliato con protoni, neutroni e elettroni disegnati a forma di galassie con colore diverso in base alla particella.",
+    "scuola": "Liceo XXV Aprile, Pontedera",
+    "campionato_max": 0,
+    "nomi_autori": [
+      "Pietro Venturini",
+      "Vittoria Ciarla",
+      "Eleonora Filippeschi"
+    ],
+    "photo": "40_PXL_20260414_140511532.MP.jpg"
+  },
+  {
+    "n": 41,
+    "titolo": "I FOSSILI DEL FUTURO",
+    "descrizione": "“Fossili del futuro” è un’opera che immagina un mondo in cui i fossili non derivano solo da organismi naturali, ma anche da componenti tecnologici come viti, pile e microchip. Attraverso l’uso di stampi e gesso, l’opera unisce scienza, tecnologia e creatività, invitando a riflettere su come l’impatto tecnologico dell’uomo possa lasciare tracce permanenti nel tempo, proprio come i fossili naturali.",
+    "scuola": "Liceo XXV Aprile, Pontedera",
+    "campionato_max": 0,
+    "nomi_autori": [
+      "Alessio Tonelli",
+      "Ginevra Pais",
+      "Caterina Sani"
+    ],
+    "photo": "41_PXL_20260414_140954795.MP.jpg"
+  },
+  {
+    "n": 42,
+    "titolo": "L’arché",
+    "descrizione": "Abbiamo preso ispirazione dalla metamorfosi della rana, paragonata alla vita di una stella (nebulosa, sequenza principale, supergigante rossa, supernova, buco nero).",
+    "scuola": "Liceo XXV Aprile, Pontedera",
+    "campionato_max": 0,
+    "nomi_autori": [
+      "Giulia Sartori",
+      "Veronica Terreni",
+      "Silvia Cipolli"
+    ],
+    "photo": "42_PXL_20260414_140843774.MP.jpg"
+  },
+  {
+    "n": 43,
+    "titolo": "L’irrisorietà dell’uomo",
+    "descrizione": "L’opera consiste in 4 pannelli trasparenti in vetro plexiglas contornato di cotone, che ha lo scopo di rappresentare nubi di polvere interstellare. In sfondo abbiamo una rappresentazione della Via Lattea. Dal pannello superiore pende un copertone in miniatura che mette in dubbio i limiti della fisica classica con 2 ragazzi che si abbracciano. Le due figure al suo interno sono il nostro cuore, spezzato ma mai domo: l’Umanità, l’Osservatore Cosciente. “L’esperienza più bella che possiamo avere è il mistero. È l’emozione fondamentale che sta alla radice di ogni vera arte e vera scienza. Colui che non la conosce e non può più meravigliarsi o sentirsi stupito è come se fosse morto, i suoi occhi sono chiusi\" -Einstein",
+    "scuola": "Liceo XXV Aprile, Pontedera",
+    "campionato_max": 0,
+    "nomi_autori": [
+      "Gabriele D'Aluisio",
+      "Cristiano Baldocchi"
+    ],
+    "photo": "43_PXL_20260414_161343936.MP.jpg"
+  },
+  {
+    "n": 44,
+    "titolo": "La Bilancia del Benessere",
+    "descrizione": "Quest’opera ha l’obiettivo di rappresentare il concetto scientifico dell’equilibrio, legato però anche alla sfera più umana di questo concetto: il benessere. Questo benessere è raggiungibile soltanto con il giusto equilibrio e peso tra studio e svago, rappresentati sui piatti della bilancia.",
+    "scuola": "Liceo XXV Aprile, Pontedera",
+    "campionato_max": 0,
+    "nomi_autori": [
+      "Francesco Pacini",
+      "Enrico Pellegrini",
+      "Christian Iervolino"
+    ],
+    "photo": "44_PXL_20260414_140805137.MP.jpg"
+  },
+  {
+    "n": 45,
+    "titolo": "La luce dei nostri occhi si nasconde",
+    "descrizione": "In questa tela sono rappresentati due occhi, mettendo in evidenza anche lo sguardo (grazie alla forma della tela). Vogliamo dare particolare importanza agli occhi e alla loro funzione, cioè la vista, uno dei cinque sensi, quello che ci permette di percepire la luce e interpretare il mondo visivo. Gli occhi rappresentati sono di due persone diverse; una metà dell’occhio è disegnata in maniera realistica, mentre l’altra metà è riempita di galassie, stelle, pianeti… in questo modo vorremmo creare un legame unico fra l’uomo (rappresentato in questo caso dagli occhi) e l’universo. Grazie agli occhi possiamo infatti vedere il mondo intero che ci circonda, e questi organi sono anche il simbolo della fantasia,del sogno e dell’infinito.",
+    "scuola": "Liceo XXV Aprile, Pontedera",
+    "campionato_max": 0,
+    "nomi_autori": [
+      "Giulia Carnelli",
+      "Sara Macchi"
+    ],
+    "photo": "45_PXL_20260414_140245446.MP.jpg"
+  },
+  {
+    "n": 46,
+    "titolo": "Microcathedral",
+    "descrizione": "La nostra opera consiste in una creazione realistica di una cattedrale gotica in miniatura, di cui sarà ben visibile sia l’esterno che l’interno, quest’ultimo attraverso una lente di ingrandimento, l’elemento scientifico dell’opera, quindi realizzando un microscopio artigianale. L’interno sarà particolarmente decorato. Attraverso l’opera abbiamo intenzione di trasmettere un particolare messaggio: l’arte, per essere apprezzata veramente, ha bisogno dell’occhio dello spettatore e di una “lente d’ingrandimento” metaforica, che rappresenta tutto ciò che un’opera alla sola vista non dice. È ciò che solo chi si interessa veramente poi scopre.",
+    "scuola": "Liceo XXV Aprile, Pontedera",
+    "campionato_max": 0,
+    "nomi_autori": [
+      "Alessio Oscar Gelli",
+      "Lorenzo Turini",
+      "Alberto Lorenzetti"
+    ],
+    "photo": "46_PXL_20260414_140307837.MP.jpg"
+  },
+  {
+    "n": 47,
+    "titolo": "Un uomo vuoto",
+    "descrizione": "Due uomini di Magritte, uno bianco e l’altro nero, su due pannelli di compensato messi perpendicolarmente.",
+    "scuola": "Liceo XXV Aprile, Pontedera",
+    "campionato_max": 0,
+    "nomi_autori": [
+      "Alessandro Picchi",
+      "Michael Barsotti",
+      "Amos Turini"
+    ],
+    "photo": "47_PXL_20260414_140431705.MP.jpg"
+  },
+  {
+    "n": 48,
+    "titolo": "Cambia il tuo punto di vista",
+    "descrizione": "Il modellino è realizzato su una base rettangolare di 50 × 30 cm. Sulla base abbiamo realizzato in 3D una parola le cui lettere sono costruite in modo che, osservando il modellino da un lato, la loro forma creerà la parola “LEGGERO”, mentre osservandolo dal lato opposto formerà la parola “PESANTE”; quindi, a seconda del punto di vista, si leggerà una parola oppure l’altra. Da un lato è posizionata una piuma per rappresentare la leggerezza, mentre dal lato opposto è collocato un oggetto che simboleggia il peso. Il nostro progetto vuole rappresentare il contrasto tra leggerezza e pesantezza nell’arte.",
+    "scuola": "Liceo XXV Aprile, Pontedera",
+    "campionato_max": 0,
+    "nomi_autori": [
+      "Alice Gragnani",
+      "Sara Consani",
+      "Chiara Menciassi"
+    ],
+    "photo": "48_PXL_20260414_140756128.MP.jpg"
+  },
+  {
+    "n": 49,
+    "titolo": "Il Collasso dell’Equilibrio",
+    "descrizione": "La nostra opera è ispirata al tema dell’universo, prendendo in esame, nello specifico, il concetto di sistema solare. L’idea è quella di rendere innovativa una cosa ormai comune, stravolgendone la realtà per far fuoriuscire una visione della natura diversa. Per questo la nostra opera si chiama “Il Collasso dell’Equilibrio”, dove è possibile osservare uno scenario catastrofico di cosa accadrebbe, se il Sole, stella che ci mantiene vivi, si schiantasse violentemente nello spazio, frantumandosi. I pianeti si scioglierebbero, la gravitazione si annullerebbe e lo spazio si curverebbe, tutto, dal troppo calore emanato dalla spaccatura del cuore del cosmo.",
+    "scuola": "Liceo XXV Aprile, Pontedera",
+    "campionato_max": 0,
+    "nomi_autori": [
+      "Aurora Vincenti",
+      "Asia Chiarini",
+      "Agnese Cecchini"
+    ],
+    "photo": "49_PXL_20260414_140457665.MP.jpg"
+  },
+  {
+    "n": 50,
+    "titolo": "Le conoscenze inconsce dell’umanità",
+    "descrizione": "Una testa appoggiata su una base di legno a forma di libro; la testa è tagliata per aggiungere una spugna che rappresenterà il cervello, sulla quale sono scritte alcune formule, che, nelle intenzioni, dovrebbero essere visibili solamente con luce ultravioletta.",
+    "scuola": "Liceo XXV Aprile, Pontedera",
+    "campionato_max": 0,
+    "nomi_autori": [
+      "Gioele Reali",
+      "Elisabetta Turini",
+      "Alessio Bonsignori"
+    ],
+    "photo": "50_PXL_20260414_140425528.MP.jpg"
+  },
+  {
+    "n": 51,
+    "titolo": "Sistema vivo",
+    "descrizione": "L'opera rappresenta il contrasto tra natura e uomo, una città fredda che è chiusa dentro il suo mondo lontano dalla natura. Poi invece esplorando e continuando a viaggiare lungo questo mondo scuro che riprende colore riscoprendosi di un verde che simboleggia la natura che rigogliosa ritorna e risplende in dei magnifici fiori.",
+    "scuola": "Liceo XXV Aprile, Pontedera",
+    "campionato_max": 0,
+    "nomi_autori": [
+      "Davide Salvadori",
+      "Manuel Martini",
+      "Luigi Pratelli"
+    ],
+    "photo": "51_PXL_20260414_140942611.MP.jpg"
+  },
+  {
+    "n": 52,
+    "titolo": "“Contemplazione del cielo al crepuscolo”",
+    "descrizione": "Una figura umana in controluce osserva il cielo al crepuscolo, dove nuvole e luna emergono in una vasta distesa blu. L’immagine unisce contemplazione artistica e osservazione scientifica, evocando il dialogo tra l’essere umano, la natura e l’universo.",
+    "scuola": "Liceo XXV Aprile, Pontedera",
+    "campionato_max": 0,
+    "nomi_autori": [
+      "Balaj Zulfiqar",
+      "Minahil Zulfiqar"
+    ],
+    "photo": "52_PXL_20260414_140636836.MP.jpg"
+  },
+  {
+    "n": 53,
+    "titolo": "Where Space Reshapes",
+    "descrizione": "L’opera ha come tema i buchi neri, in particolare si focalizza sull’anello di nube di materia interstellare (gas e polveri), detta “disco di accrescimento”, che ruota ad altissime velocità poiché sottoposto alla fortissima gravità del corpo celeste, raggiunge temperature di milioni di gradi, e arriva così ad emettere luce. La gravità del buco nero è sia la causa della sconcertante accelerazione delle masse circostanti, sia la causa dell’ombra del buco nero, quello spazio da dentro al quale nemmeno la luce sa sfuggire, delimitata da quello che è definito “orizzonte degli eventi”.",
+    "scuola": "Liceo Barsanti e Matteucci, Viareggio",
+    "campionato_max": 21.5,
+    "nomi_autori": [
+      "Sami Bertolotti",
+      "Giovanni Baroni",
+      "Martino Risigari"
+    ],
+    "photo": "53_PXL_20260414_140313997.MP.jpg"
+  },
+  {
+    "n": 54,
+    "titolo": "Contagio invisibile",
+    "descrizione": "Quest’opera mette in scena un paradosso contemporaneo: ciò che nasce come strumento di progresso si trasforma in agente di contaminazione globale. La plastica, qui riconfigurata in forma virale, non è solo rifiuto ma sistema invasivo, capace di replicarsi, diffondersi e insinuarsi nei cicli biologici sotto forma di microplastiche. Il pianeta non è semplicemente circondato, ma progressivamente colonizzato. L’immagine suggerisce una responsabilità diffusa: l’uomo non è vittima del contagio, ma il suo vettore. Tra estetica e dato scientifico, l’opera invita a interrogarsi sul limite tra controllo e perdita, tra creazione e deriva, rendendo visibile una crisi tanto materiale quanto etica.",
+    "scuola": "Liceo Barsanti e Matteucci, Viareggio",
+    "campionato_max": 19.0,
+    "nomi_autori": [
+      "Luca Di Clemente",
+      "Gregorio Lartini",
+      "Lorenzo Usseglio"
+    ],
+    "photo": "54_PXL_20260414_140720618.MP.jpg"
+  },
+  {
+    "n": 55,
+    "titolo": "La Scala della Vita",
+    "descrizione": "L'opera cattura immediatamente l’attenzione per il suo simbolismo diretto e i colori vibranti. Al centro domina la doppia elica del DNA, la “Scala della Vita” (come recita il cartiglio in alto), che si erge non come un freddo diagramma scientifico, ma come un elemento pulsante della natura stessa. Il contrasto tra il blu profondo del cielo e il verde delle colline sottolinea l’unione tra il codice genetico e il paesaggio terrestre. I pioli colorati richiamano la complessità delle basi azotate, ricordandoci che la diversità biologica è un’esplosione di sfumature. È un’immagine potente: la biologia che si fa arte, suggerendo che ogni essere vivente è un capolavoro scritto in un linguaggio universale.",
+    "scuola": "Liceo Barsanti e Matteucci, Viareggio",
+    "campionato_max": 20.0,
+    "nomi_autori": [
+      "Alessio Cascino",
+      "Oliver Wilk",
+      "Luca Ronzoni"
+    ],
+    "photo": "55_PXL_20260414_140444756.MP.jpg"
+  },
+  {
+    "n": 56,
+    "titolo": "L’albero dove la fisica ebbe inizio",
+    "descrizione": "",
+    "scuola": "Liceo XXV Aprile, Pontedera",
+    "campionato_max": 0,
+    "nomi_autori": [
+      "Giacomo Federighi",
+      "Leonardo Caronna",
+      "Davide Masini"
+    ],
+    "photo": "56_PXL_20260414_140602772.jpg"
+  },
+  {
+    "n": 57,
+    "titolo": "La Bomba di Munch",
+    "descrizione": "L'opera richiama l'espressività di Edvard Munch per l'uso emotivo del colore e delle pennellate. La bomba atomica, simbolo di distruzione, viene accostata ai panni, creando un contrasto tra tragedia e quotidianità. Le pennellate libere e i colori intensi trasmettono inquietudine e tensione, trasformando l'immagine in una riflessione sul modo in cui l'orrore può diventare parte della normalità. L'opera comunica più emozioni che realtà, puntando su un forte impatto psicologico.",
+    "scuola": "Liceo XXV Aprile, Pontedera",
+    "campionato_max": 0,
+    "nomi_autori": [
+      "Caterina Falchi",
+      "Gianmarco Silvi",
+      "Riccardo Monti"
+    ],
+    "photo": "57_PXL_20260414_141034505.MP.jpg"
+  }
+]

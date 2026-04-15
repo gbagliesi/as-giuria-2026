@@ -1,0 +1,533 @@
+/* ============================================================
+   Art & Science 2026 — Sito votazione giuria
+   Mobile-first, touch-friendly
+   ============================================================ */
+
+:root {
+  --primary:       #1a1a2e;
+  --accent:        #c0392b;
+  --accent-light:  #e74c3c;
+  --bg:            #f4f5f7;
+  --card-bg:       #ffffff;
+  --text:          #1a1a2e;
+  --text-muted:    #6b7280;
+  --border:        #e5e7eb;
+  --success:       #16a34a;
+  --success-light: #dcfce7;
+  --header-h:      68px;
+  --nav-h:         60px;
+  --radius:        12px;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+button { font-family: inherit; cursor: pointer; }
+img    { display: block; }
+/* Garantisce che hidden funzioni sempre, anche con display esplicito nel CSS */
+[hidden] { display: none !important; }
+
+/* ---- Base ---- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+#header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 16px;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+
+#header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#site-title {
+  font-size: 11px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  opacity: .6;
+}
+
+#juror-name {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+#progress-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+#progress-text {
+  font-size: 12px;
+  color: rgba(255,255,255,.65);
+  white-space: nowrap;
+}
+
+#progress-bar {
+  flex: 1;
+  height: 5px;
+  background: rgba(255,255,255,.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+#progress-fill {
+  height: 100%;
+  background: var(--accent-light);
+  border-radius: 3px;
+  transition: width .4s ease;
+  width: 0;
+}
+
+/* ============================================================
+   MAIN
+   ============================================================ */
+#main {
+  padding-top: calc(var(--header-h) + 12px);
+  padding-bottom: calc(var(--nav-h) + 12px);
+  padding-left: 12px;
+  padding-right: 12px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ---- States ---- */
+.state-message {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+.state-message h2 { font-size: 1.2em; margin-bottom: 8px; color: var(--text); }
+#error-msg { color: var(--accent); }
+
+/* ============================================================
+   OPERA CARD
+   ============================================================ */
+#opera-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 16px rgba(0,0,0,.08);
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+#opera-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 14px;
+  background: var(--primary);
+  color: #fff;
+  gap: 8px;
+}
+
+#opera-number {
+  font-size: 13px;
+  font-weight: 800;
+  background: var(--accent);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+#opera-school {
+  font-size: 11px;
+  opacity: .75;
+  text-align: right;
+  line-height: 1.3;
+}
+
+#opera-photo-wrap {
+  background: #111;
+  width: 100%;
+  max-height: 380px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#opera-photo {
+  width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+}
+
+#opera-body {
+  padding: 14px 16px 4px;
+}
+
+#opera-title {
+  font-size: 1.25em;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+#opera-authors {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+/* Descrizione con expand */
+#opera-description-wrap { position: relative; margin-bottom: 8px; }
+
+#opera-description {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #374151;
+  max-height: 96px;
+  overflow: hidden;
+  transition: max-height .35s ease;
+}
+
+#opera-description.expanded { max-height: 1000px; }
+
+#btn-expand {
+  display: inline-block;
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 2px 0;
+  margin-bottom: 10px;
+}
+
+/* ============================================================
+   CRITERI DI VOTO
+   ============================================================ */
+#criteria {
+  border-top: 1px solid var(--border);
+}
+
+.criterion {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.criterion:last-child { border-bottom: none; }
+
+.criterion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 9px;
+}
+
+.criterion-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.criterion-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--accent);
+  min-width: 52px;
+  text-align: right;
+  line-height: 1;
+}
+.criterion-value.abstained { color: var(--text-muted); font-size: 13px; }
+
+/* Bottoni voto: 1-10 su una riga + AST */
+.vote-row {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.vote-btn {
+  flex: 1;
+  min-width: 0;
+  height: 38px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: border-color .12s, background .12s, color .12s;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.vote-btn:hover  { border-color: var(--accent-light); color: var(--accent-light); }
+
+.vote-btn.selected {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* Pulsante Astenuto — testo più piccolo, colore neutro */
+.btn-ast {
+  font-size: 10px;
+  letter-spacing: -.02em;
+}
+.btn-ast.selected {
+  background: var(--text-muted);
+  border-color: var(--text-muted);
+  color: #fff;
+}
+
+/* ---- Status salvataggio ---- */
+#save-status {
+  padding: 6px 16px 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+  min-height: 30px;
+  text-align: right;
+}
+#save-status.saving  { color: var(--text-muted); }
+#save-status.saved   { color: var(--success); }
+#save-status.error   { color: var(--accent); }
+
+/* ============================================================
+   NAVIGATION BAR (fissa in basso)
+   ============================================================ */
+#nav-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  z-index: 100;
+  box-shadow: 0 -2px 10px rgba(0,0,0,.07);
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: var(--primary);
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-btn:disabled        { opacity: .25; cursor: default; }
+.nav-btn:not(:disabled):active { background: var(--bg); }
+
+#nav-counter {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+  min-width: 60px;
+}
+
+#btn-overview {
+  font-size: 20px;
+  width: 48px; height: 48px;
+}
+
+/* ============================================================
+   PANORAMICA MODALE
+   ============================================================ */
+#overview-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+}
+
+#overview-panel {
+  background: var(--card-bg);
+  border-radius: 18px 18px 0 0;
+  padding: 16px 16px 24px;
+  width: 100%;
+  max-height: 72vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#overview-panel h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#btn-close-overview {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: var(--text-muted);
+  line-height: 1;
+}
+
+#overview-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.ov-item {
+  height: 42px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.ov-item.voted   { border-color: var(--success); color: var(--success); background: var(--success-light); }
+.ov-item.current { border-color: var(--accent);  color: var(--accent); }
+
+/* ============================================================
+   PAGINA RISULTATI
+   ============================================================ */
+.results-header {
+  background: var(--primary);
+  color: #fff;
+  padding: 20px 16px;
+  text-align: center;
+}
+.results-header h1 { font-size: 1.3em; margin-bottom: 4px; }
+.results-header p  { font-size: 13px; opacity: .7; }
+
+#results-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+#results-table-wrap {
+  max-width: 900px;
+  margin: 16px auto;
+  padding: 0 12px;
+  overflow-x: auto;
+}
+
+table.ranking {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  font-size: 14px;
+}
+
+table.ranking th {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+table.ranking th:hover      { background: #2d2d4e; }
+table.ranking th.sort-active{ background: var(--accent); }
+.sort-arrow { margin-left: 3px; opacity: .8; }
+
+table.ranking td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+table.ranking tr:last-child td { border-bottom: none; }
+table.ranking tr:hover td     { background: #f9fafb; }
+
+.rank-num  { font-weight: 800; color: var(--text-muted); font-size: 13px; width: 32px; }
+.rank-1 .rank-num { color: #b8860b; }
+.rank-2 .rank-num { color: #777; }
+.rank-3 .rank-num { color: #a0522d; }
+
+.opera-n-badge {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-right: 6px;
+}
+
+.opera-title-cell { font-weight: 600; }
+.opera-school-small { font-size: 11px; color: var(--text-muted); display: block; }
+
+.score-cell {
+  text-align: center;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.score-final {
+  font-size: 16px;
+  color: var(--accent);
+}
+.score-na { color: var(--text-muted); font-size: 13px; }
+
+.n-votes-badge {
+  display: inline-block;
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 1px 7px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   RESPONSIVE — tablet/desktop
+   ============================================================ */
+@media (min-width: 600px) {
+  #opera-photo-wrap { max-height: 480px; }
+  #opera-photo      { max-height: 480px; }
+  .vote-btn         { height: 44px; font-size: 15px; }
+  .btn-ast          { font-size: 12px; }
+  #overview-overlay { align-items: center; }
+  #overview-panel   { max-width: 560px; margin: auto; border-radius: 18px; max-height: 80vh; }
+  #overview-grid    { grid-template-columns: repeat(10, 1fr); }
+}

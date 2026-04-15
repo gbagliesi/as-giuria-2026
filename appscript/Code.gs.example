@@ -1,0 +1,203 @@
+// =============================================================================
+// Art & Science 2026 — Votazione Giuria
+// Google Apps Script Web App
+//
+// Deploy: Extensions → Apps Script → Deploy → New deployment
+//   - Type: Web app
+//   - Execute as: Me
+//   - Who has access: Anyone
+// =============================================================================
+
+// =============================================================================
+// TOKEN GIURATI
+// Genera con: python3 scripts/generate_tokens.py
+// Incolla qui l'output e NON committare questo file con i token reali.
+// =============================================================================
+// Genera i token con: python3 scripts/generate_tokens.py
+// Incolla qui l'output e rideploya lo script. NON committare i token reali.
+const TOKENS = {
+  'TOKEN_GIURATO_1': { name: 'Nome Cognome 1', email: 'giurato1@example.com' },
+  'TOKEN_GIURATO_2': { name: 'Nome Cognome 2', email: 'giurato2@example.com' },
+  'TOKEN_GIURATO_3': { name: 'Nome Cognome 3', email: 'giurato3@example.com' },
+  'TOKEN_GIURATO_4': { name: 'Nome Cognome 4', email: 'giurato4@example.com' },
+  'TOKEN_GIURATO_5': { name: 'Nome Cognome 5', email: 'giurato5@example.com' },
+  'TOKEN_GIURATO_6': { name: 'Nome Cognome 6', email: 'giurato6@example.com' },
+  'TOKEN_GIURATO_7': { name: 'Nome Cognome 7', email: 'giurato7@example.com' },
+};
+
+// =============================================================================
+// SCORING CONFIG — deve rimanere in sync con data/config.json
+// =============================================================================
+const SCORING_CONFIG = {
+  criteri: ['originalita', 'accuratezza', 'bellezza', 'coerenza'],
+  pesi:    { originalita: 1, accuratezza: 1, bellezza: 1, coerenza: 1 },
+  campionato: { abilitato: true, divisore: 30, peso: 1 },
+};
+
+// =============================================================================
+// ROUTING
+// =============================================================================
+function doGet(e) {
+  const action = (e.parameter && e.parameter.action) || '';
+  try {
+    switch (action) {
+      case 'validate':  return ok(validateToken(e.parameter.token));
+      case 'isOpen':    return ok(isOpen());
+      case 'getVotes':  return ok(getVotes(e.parameter.token));
+      case 'saveVote':  return ok(saveVote(e.parameter));
+      case 'getResults':return ok(getResults());
+      default:          return err('Azione sconosciuta: ' + action);
+    }
+  } catch (ex) {
+    return err(ex.message || String(ex));
+  }
+}
+
+function ok(data)  { return json({ ok: true,  ...data }); }
+function err(msg)  { return json({ ok: false, error: msg }); }
+function json(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+// =============================================================================
+// VALIDATE TOKEN
+// =============================================================================
+function validateToken(token) {
+  if (!token || !TOKENS[token]) throw new Error('Token non valido');
+  return { name: TOKENS[token].name };
+}
+
+// =============================================================================
+// VOTING OPEN/CLOSED  (flag nel foglio Config, cella B1)
+// Per chiudere le votazioni: apri il foglio Config e metti FALSE in B1
+// =============================================================================
+function isOpen() {
+  const val = getConfigSheet().getRange('B1').getValue();
+  const open = (val === true || String(val).toUpperCase() === 'TRUE');
+  return { open };
+}
+
+// =============================================================================
+// GET VOTES per un giurato
+// =============================================================================
+function getVotes(token) {
+  if (!TOKENS[token]) throw new Error('Token non valido');
+  const data = getVotiSheet().getDataRange().getValues().slice(1);
+  const votes = {};
+  for (const row of data) {
+    if (row[0] !== token) continue;
+    const opera_n = row[2];
+    votes[opera_n] = {};
+    SCORING_CONFIG.criteri.forEach((c, i) => { votes[opera_n][c] = row[3 + i] || 0; });
+  }
+  return { votes };
+}
+
+// =============================================================================
+// SAVE VOTE  (upsert per token+opera)
+// =============================================================================
+function saveVote(params) {
+  const token   = params.token;
+  const opera_n = parseInt(params.opera);
+
+  if (!TOKENS[token]) throw new Error('Token non valido');
+  if (!isOpen().open)  throw new Error('Votazioni chiuse');
+  if (isNaN(opera_n))  throw new Error('opera non valida');
+
+  const voti = {};
+  for (const c of SCORING_CONFIG.criteri) {
+    const v = parseFloat(params[c]);
+    voti[c] = isNaN(v) ? 0 : Math.min(10, Math.max(0, v));
+  }
+
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+  try {
+    const sheet = getVotiSheet();
+    const data  = sheet.getDataRange().getValues();
+    let rowIdx  = -1;
+    for (let i = 1; i < data.length; i++) {
+      if (data[i][0] === token && data[i][2] === opera_n) { rowIdx = i + 1; break; }
+    }
+    const rowData = [
+      token,
+      TOKENS[token].name,
+      opera_n,
+      ...SCORING_CONFIG.criteri.map(c => voti[c]),
+      new Date().toISOString(),
+    ];
+    if (rowIdx > 0) {
+      sheet.getRange(rowIdx, 1, 1, rowData.length).setValues([rowData]);
+    } else {
+      sheet.appendRow(rowData);
+    }
+  } finally {
+    lock.releaseLock();
+  }
+  return {};
+}
+
+// =============================================================================
+// GET RESULTS  — dati aggregati (senza nomi giurati)
+// Restituisce: { votes: { opera_n: { criterio: [v1,v2,...] } }, n_giurati: 7 }
+// Il calcolo della classifica avviene nel browser (results.js) usando config.json
+// =============================================================================
+function getResults() {
+  const data  = getVotiSheet().getDataRange().getValues().slice(1);
+  const votes = {};
+  for (const row of data) {
+    const opera_n = row[2];
+    if (!opera_n) continue;
+    if (!votes[opera_n]) {
+      votes[opera_n] = {};
+      SCORING_CONFIG.criteri.forEach(c => { votes[opera_n][c] = []; });
+    }
+    SCORING_CONFIG.criteri.forEach((c, i) => {
+      const v = row[3 + i];
+      if (v && v > 0) votes[opera_n][c].push(v);  // 0 = astenuto, escluso
+    });
+  }
+  return { votes, n_giurati: Object.keys(TOKENS).length };
+}
+
+// =============================================================================
+// SETUP  — esegui UNA VOLTA dalla barra degli strumenti di Apps Script
+// =============================================================================
+function setupSheets() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+
+  // Foglio Voti
+  let voti = ss.getSheetByName('Voti') || ss.insertSheet('Voti');
+  if (voti.getLastRow() === 0) {
+    voti.appendRow(['token', 'giurato', 'opera_n',
+      ...SCORING_CONFIG.criteri, 'timestamp']);
+    voti.setFrozenRows(1);
+  }
+
+  // Foglio Config
+  let config = ss.getSheetByName('Config') || ss.insertSheet('Config');
+  if (config.getLastRow() === 0) {
+    config.getRange('A1').setValue('votazioni_aperte');
+    config.getRange('B1').setValue(true);
+    config.getRange('A1:B1').setFontWeight('bold');
+  }
+
+  SpreadsheetApp.getUi().alert(
+    'Setup completato!\n' +
+    '• Foglio "Voti" pronto\n' +
+    '• Foglio "Config" — B1 = TRUE (aperto) / FALSE (chiuso)\n\n' +
+    'Ricorda di incollare i token reali in TOKENS e rideploy.'
+  );
+}
+
+// =============================================================================
+// HELPERS
+// =============================================================================
+function getVotiSheet()  {
+  return SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Voti');
+}
+function getConfigSheet() {
+  return SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Config');
+}

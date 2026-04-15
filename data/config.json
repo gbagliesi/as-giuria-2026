@@ -1,0 +1,24 @@
+{
+  "_commento": "Modifica questo file per cambiare criteri, pesi e formula. Deve rimanere in sync con appscript/Code.gs (sezione SCORING_CONFIG).",
+
+  "criteri": [
+    { "id": "originalita", "etichetta": "Originalità dell'idea",           "peso": 1 },
+    { "id": "accuratezza", "etichetta": "Accuratezza della realizzazione",  "peso": 1 },
+    { "id": "bellezza",    "etichetta": "Bellezza dell'opera",              "peso": 1 },
+    { "id": "coerenza",    "etichetta": "Coerenza scientifica",             "peso": 1 }
+  ],
+
+  "campionato": {
+    "abilitato": true,
+    "divisore":  30,
+    "peso":       1,
+    "_nota": "bonus = (max_punteggio_membro / divisore) * peso  →  max ~1 punto"
+  },
+
+  "voto": {
+    "min": 1,
+    "max": 10,
+    "astensione": 0,
+    "_nota": "voto 0 = astenuto, non incluso nella media del criterio"
+  }
+}

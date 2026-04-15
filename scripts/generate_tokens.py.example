@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+"""
+Genera token univoci per i giurati e stampa:
+  1. Il blocco TOKENS da incollare in appscript/Code.gs
+  2. Gli URL personali da inviare per email
+
+Eseguire dalla directory voting-site/:
+    python3 scripts/generate_tokens.py
+
+IMPORTANTE: non committare il file con i nomi/email reali.
+Tieni generate_tokens.py solo in locale (è nel .gitignore).
+"""
+import secrets
+
+BASE_URL = 'https://TUO_USERNAME.github.io/NOME_REPO/'   # <-- adatta al tuo repo
+
+GIURATI = [
+    ('Nome Cognome 1', 'giurato1@example.com'),
+    ('Nome Cognome 2', 'giurato2@example.com'),
+    ('Nome Cognome 3', 'giurato3@example.com'),
+    ('Nome Cognome 4', 'giurato4@example.com'),
+    ('Nome Cognome 5', 'giurato5@example.com'),
+    ('Nome Cognome 6', 'giurato6@example.com'),
+    ('Nome Cognome 7', 'giurato7@example.com'),
+]
+
+tokens = [(secrets.token_hex(6), nome, email) for nome, email in GIURATI]
+
+print("=" * 60)
+print("1)  COPIA IN appscript/Code.gs  (sezione TOKENS)")
+print("=" * 60)
+print("const TOKENS = {")
+for tok, nome, email in tokens:
+    print(f"  '{tok}': {{ name: '{nome}', email: '{email}' }},")
+print("};")
+
+print()
+print("=" * 60)
+print("2)  URL PERSONALI  (invia per email a ciascun giurato)")
+print("=" * 60)
+for tok, nome, email in tokens:
+    url = f"{BASE_URL}?j={tok}"
+    print(f"\n  {nome} <{email}>")
+    print(f"  {url}")
+
+print()
+print("Pagina risultati (URL segreto — comunicalo privatamente):")
+print(f"  {BASE_URL}results-XXXXXXXXXX.html")
