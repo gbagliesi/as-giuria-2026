@@ -29,11 +29,13 @@ js/
   results.js    ← logica classifica con ordinamento per colonna
 css/style.css
 appscript/
-  Code.gs       ← Google Apps Script (NON committare con i token reali)
+  Code.gs.example     ← template Apps Script (copia, rinomina, inserisci token)
 scripts/
-  generate_opere.py   ← genera data/opere.json dall'Excel
-  generate_tokens.py  ← genera i token personali per i giurati
-  resize_photos.sh    ← ridimensiona le foto per il web
+  generate_opere.py          ← genera data/opere.json dall'Excel
+  generate_tokens.py.example ← template per generare token giurati (copia e adatta)
+  resize_photos.sh           ← ridimensiona le foto per il web
+docs/
+  opere-esempio.xlsx  ← esempio del formato Excel atteso in input
 ```
 
 ---
@@ -45,6 +47,8 @@ scripts/
 Il file Excel sorgente deve avere queste colonne:  
 `N. | Titolo | Descrizione | Autore | Punteggio campionato | Scuola`  
 (una riga per autore; N./Titolo/Descrizione/Scuola solo sulla prima riga dell'opera)
+
+Vedi `docs/opere-esempio.xlsx` per un esempio della struttura attesa.
 
 Modifica il percorso del file in `scripts/generate_opere.py`, poi esegui:
 
