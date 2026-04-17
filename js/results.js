@@ -5,8 +5,8 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby6HsOLYhr6iGPz
 
 let autoRefreshTimer = null;
 
-// Stato ordinamento: { col: 'totale', dir: -1 }  (-1 = decrescente, +1 = crescente)
-let sortState = { col: 'totale', dir: -1 };
+// Stato ordinamento: { col: 'totale', dir: 1 }  (1 = decrescente, -1 = crescente)
+let sortState = { col: 'totale', dir: 1 };
 
 // Cache dei dati per re-sort senza rifetch
 let cachedRankings = [];
@@ -137,7 +137,7 @@ function onSortClick(col) {
     sortState.dir *= -1;          // inverti direzione
   } else {
     sortState.col = col;
-    sortState.dir = -1;           // default: decrescente
+    sortState.dir = 1;            // default: decrescente
   }
   renderTable();
 }
@@ -180,7 +180,7 @@ function renderTable() {
     th.title = c.title;
 
     const isActive = sortState.col === c.key;
-    const arrow    = isActive ? (sortState.dir === -1 ? ' ↓' : ' ↑') : '';
+    const arrow    = isActive ? (sortState.dir === 1 ? ' ↓' : ' ↑') : '';
     th.innerHTML   = escHtml(c.label) + `<span class="sort-arrow">${arrow}</span>`;
 
     if (isActive) th.classList.add('sort-active');
