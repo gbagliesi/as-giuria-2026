@@ -507,6 +507,21 @@ table.ranking tr:hover td     { background: #f9fafb; }
 .opera-title-btn:hover { text-decoration-color: #4f46e5; }
 .opera-school-small { font-size: 11px; color: var(--text-muted); display: block; }
 
+/* Rank senza bonus — mostrato sotto il rank principale */
+.rank-media-sub {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  color: #9ca3af;
+  line-height: 1.2;
+  cursor: default;
+}
+/* Evidenzia chi entra nei top 10 grazie al bonus */
+.rank-media-sub.rank-bonus-top10 {
+  color: #059669;
+  font-weight: 700;
+}
+
 .score-cell {
   text-align: center;
   font-weight: 700;

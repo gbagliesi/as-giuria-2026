@@ -162,7 +162,7 @@ function renderTable() {
 
   // Definizione colonne: { key, label, title }
   const cols = [
-    { key: 'totale', label: '#',     title: 'Classifica per punteggio finale' },
+    { key: 'totale', label: '#',     title: 'Classifica per punteggio finale (con bonus campionato). Il numero più piccolo in grigio sotto indica la posizione senza bonus.' },
     { key: 'n',      label: 'Opera', title: 'Numero opera' },
     ...config.criteri.map(c => ({ key: c.id, label: c.etichetta.split(' ')[0], title: c.etichetta })),
     { key: 'media',  label: 'Media', title: 'Media criteri' },
@@ -195,6 +195,19 @@ function renderTable() {
   thead.appendChild(trHead);
   table.appendChild(thead);
 
+  // Pre-calcola ranking per totale e per media (senza bonus) — fuori dal loop
+  const byTotal = cachedRankings
+    .filter(r => r.score.totale !== null)
+    .sort((a, b) => b.score.totale - a.score.totale);
+  const rankByTotalMap = {};
+  byTotal.forEach((r, i) => { rankByTotalMap[r.op.n] = i + 1; });
+
+  const byMedia = cachedRankings
+    .filter(r => r.score.media_criteri !== null)
+    .sort((a, b) => b.score.media_criteri - a.score.media_criteri);
+  const rankByMediaMap = {};
+  byMedia.forEach((r, i) => { rankByMediaMap[r.op.n] = i + 1; });
+
   // Tbody
   const tbody = document.createElement('tbody');
   let rank = 1;
@@ -203,14 +216,23 @@ function renderTable() {
     const tr = document.createElement('tr');
     if (score.totale !== null) tr.className = `rank-${rank <= 3 ? rank : ''}`;
 
-    // Calcola posizione in classifica per totale (indipendente dal sort corrente)
-    const rankByTotal = cachedRankings
-      .filter(r => r.score.totale !== null)
-      .sort((a, b) => b.score.totale - a.score.totale)
-      .findIndex(r => r.op.n === op.n) + 1;
+    const rankT = rankByTotalMap[op.n] || null;   // rank con bonus
+    const rankM = rankByMediaMap[op.n] || null;   // rank senza bonus
 
-    const rankDisplay = score.totale !== null ? rankByTotal : '—';
-    const rankClass   = score.totale !== null ? `rank-num rank-${rankByTotal <= 3 ? rankByTotal : ''}` : 'rank-num score-na';
+    // Cella rank: mostra entrambe le posizioni
+    let rankCell;
+    if (rankT === null) {
+      rankCell = `<td class="rank-num score-na">—</td>`;
+    } else {
+      const rankClass = `rank-num rank-${rankT <= 3 ? rankT : ''}`;
+      let mediaSub = '';
+      if (rankM !== null && rankM !== rankT) {
+        // bonus ha spostato la posizione
+        const crossed10 = (rankT <= 10 && rankM > 10) ? ' rank-bonus-top10' : '';
+        mediaSub = `<span class="rank-media-sub${crossed10}" title="Posizione senza bonus campionato">(${rankM})</span>`;
+      }
+      rankCell = `<td class="${rankClass}">${rankT}${mediaSub}</td>`;
+    }
 
     const criteriaScores = config.criteri.map(c => {
       const v = score.criteri[c.id];
@@ -218,7 +240,7 @@ function renderTable() {
     }).join('');
 
     tr.innerHTML = `
-      <td class="${rankClass}">${rankDisplay}</td>
+      ${rankCell}
       <td>
         <span class="opera-n-badge">${op.n}</span>
         <button class="opera-title-btn" onclick="openOperaModal(${op.n})">${escHtml(op.titolo)}</button>
