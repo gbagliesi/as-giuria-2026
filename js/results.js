@@ -12,6 +12,7 @@ let sortState = { col: 'totale', dir: -1 };
 let cachedRankings = [];
 let cachedConfig   = null;
 let cachedNGiurati = '?';
+let cachedOpereMap = {};
 
 // =============================================================================
 // FORMULA DI PUNTEGGIO  (deve rispecchiare data/config.json)
@@ -59,6 +60,7 @@ async function init() {
 
     const opereMap = {};
     for (const op of opere) opereMap[op.n] = op;
+    cachedOpereMap = opereMap;
 
     async function refresh() {
       try {
@@ -219,7 +221,7 @@ function renderTable() {
       <td class="${rankClass}">${rankDisplay}</td>
       <td>
         <span class="opera-n-badge">${op.n}</span>
-        <span class="opera-title-cell">${escHtml(op.titolo)}</span>
+        <button class="opera-title-btn" onclick="openOperaModal(${op.n})">${escHtml(op.titolo)}</button>
         <span class="opera-school-small">${escHtml(op.scuola || '')}</span>
       </td>
       ${criteriaScores}
@@ -244,6 +246,31 @@ function escHtml(s)  { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;
 function el(id)      { return document.getElementById(id); }
 function showStatus(msg) { el('results-status').textContent = msg; }
 function fetchJson(u)    { return fetch(u).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }); }
+
+function openOperaModal(n) {
+  const op = cachedOpereMap[n];
+  if (!op) return;
+  el('opera-modal-n').textContent = `Opera n. ${op.n}`;
+  el('opera-modal-title').textContent = op.titolo;
+  el('opera-modal-school').textContent = op.scuola || '';
+  el('opera-modal-desc').textContent = op.descrizione || '';
+  const img = el('opera-modal-img');
+  if (op.photo) {
+    img.src = 'photos/' + op.photo;
+    img.alt = op.titolo;
+    img.style.display = 'block';
+  } else {
+    img.style.display = 'none';
+  }
+  const overlay = el('opera-modal-overlay');
+  overlay.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeOperaModal() {
+  el('opera-modal-overlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
 
 // =============================================================================
 // AVVIO

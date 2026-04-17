@@ -497,6 +497,14 @@ table.ranking tr:hover td     { background: #f9fafb; }
 }
 
 .opera-title-cell { font-weight: 600; }
+.opera-title-btn {
+  background: none; border: none; padding: 0; margin: 0;
+  font: inherit; font-weight: 600; color: #4f46e5;
+  cursor: pointer; text-align: left;
+  text-decoration: underline; text-decoration-color: transparent;
+  transition: text-decoration-color .15s;
+}
+.opera-title-btn:hover { text-decoration-color: #4f46e5; }
 .opera-school-small { font-size: 11px; color: var(--text-muted); display: block; }
 
 .score-cell {
