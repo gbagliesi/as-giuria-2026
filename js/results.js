@@ -5,8 +5,8 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby6HsOLYhr6iGPz
 
 let autoRefreshTimer = null;
 
-// Stato ordinamento: { col: 'totale', dir: 1 }  (1 = decrescente, -1 = crescente)
-let sortState = { col: 'totale', dir: 1 };
+// Stato ordinamento: { col: 'media', dir: 1 }  (1 = decrescente, -1 = crescente)
+let sortState = { col: 'media', dir: 1 };
 
 // Cache dei dati per re-sort senza rifetch
 let cachedRankings = [];
@@ -162,7 +162,7 @@ function renderTable() {
 
   // Definizione colonne: { key, label, title }
   const cols = [
-    { key: 'totale', label: '#',     title: 'Classifica per punteggio finale (con bonus campionato). Il numero più piccolo in grigio sotto indica la posizione senza bonus.' },
+    { key: 'media',  label: '#',     title: 'Classifica per media criteri. Il numero più piccolo in grigio sotto indica la posizione con bonus campionato.' },
     { key: 'n',      label: 'Opera', title: 'Numero opera' },
     ...config.criteri.map(c => ({ key: c.id, label: c.etichetta.split(' ')[0], title: c.etichetta })),
     { key: 'media',  label: 'Media', title: 'Media criteri' },
@@ -185,7 +185,7 @@ function renderTable() {
 
     if (isActive) th.classList.add('sort-active');
 
-    // Prima colonna (#) = alias per 'totale', non duplicare il click
+    // Prima colonna (#) = alias per 'media', non duplicare il click
     const clickKey = c.key;
     th.style.cursor = 'pointer';
     th.addEventListener('click', () => onSortClick(clickKey));
@@ -219,19 +219,19 @@ function renderTable() {
     const rankT = rankByTotalMap[op.n] || null;   // rank con bonus
     const rankM = rankByMediaMap[op.n] || null;   // rank senza bonus
 
-    // Cella rank: mostra entrambe le posizioni
+    // Cella rank: numero principale = rank per media, sub = rank con bonus
     let rankCell;
-    if (rankT === null) {
+    if (rankM === null) {
       rankCell = `<td class="rank-num score-na">—</td>`;
     } else {
-      const rankClass = `rank-num rank-${rankT <= 3 ? rankT : ''}`;
-      let mediaSub = '';
-      if (rankM !== null && rankM !== rankT) {
-        // bonus ha spostato la posizione
+      const rankClass = `rank-num rank-${rankM <= 3 ? rankM : ''}`;
+      let bonusSub = '';
+      if (rankT !== null && rankT !== rankM) {
+        // il bonus sposta la posizione
         const crossed10 = (rankT <= 10 && rankM > 10) ? ' rank-bonus-top10' : '';
-        mediaSub = `<span class="rank-media-sub${crossed10}" title="Posizione senza bonus campionato">(${rankM})</span>`;
+        bonusSub = `<span class="rank-media-sub${crossed10}" title="Posizione con bonus campionato">(${rankT})</span>`;
       }
-      rankCell = `<td class="${rankClass}">${rankT}${mediaSub}</td>`;
+      rankCell = `<td class="${rankClass}">${rankM}${bonusSub}</td>`;
     }
 
     const criteriaScores = config.criteri.map(c => {
