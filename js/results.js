@@ -8,6 +8,16 @@ let autoRefreshTimer = null;
 // Stato ordinamento: { col: 'media', dir: 1 }  (1 = decrescente, -1 = crescente)
 let sortState = { col: 'media', dir: 1 };
 
+// Vista attiva: 'generale' | 'liceo'
+let viewMode = 'generale';
+
+function setView(mode) {
+  viewMode = mode;
+  el('btn-view-generale').classList.toggle('view-btn-active', mode === 'generale');
+  el('btn-view-liceo').classList.toggle('view-btn-active', mode === 'liceo');
+  renderTable();
+}
+
 // Cache dei dati per re-sort senza rifetch
 let cachedRankings = [];
 let cachedConfig   = null;
@@ -147,6 +157,8 @@ function onSortClick(col) {
 // =============================================================================
 function renderTable() {
   if (!cachedConfig) return;
+  if (viewMode === 'liceo') { renderBySchool(); return; }
+
   const config    = cachedConfig;
   const rankings  = sortRankings(cachedRankings, sortState.col, sortState.dir);
 
@@ -258,6 +270,125 @@ function renderTable() {
 
   table.appendChild(tbody);
   wrap.appendChild(table);
+}
+
+// =============================================================================
+// RENDER PER LICEO
+// =============================================================================
+function renderBySchool() {
+  const config = cachedConfig;
+
+  el('n-giurati').textContent = cachedNGiurati;
+  const n_voted = cachedRankings.filter(r => r.score.totale !== null).length;
+  el('n-voted').textContent = `${n_voted} / ${cachedRankings.length} opere con almeno un voto`;
+
+  // Classifica assoluta per media e per totale
+  const byMedia = cachedRankings
+    .filter(r => r.score.media_criteri !== null)
+    .sort((a, b) => b.score.media_criteri - a.score.media_criteri);
+  const rankByMediaMap = {};
+  byMedia.forEach((r, i) => { rankByMediaMap[r.op.n] = i + 1; });
+
+  const byTotal = cachedRankings
+    .filter(r => r.score.totale !== null)
+    .sort((a, b) => b.score.totale - a.score.totale);
+  const rankByTotalMap = {};
+  byTotal.forEach((r, i) => { rankByTotalMap[r.op.n] = i + 1; });
+
+  // Raggruppa per scuola
+  const schools = {};
+  for (const row of cachedRankings) {
+    const scuola = row.op.scuola || '(senza scuola)';
+    if (!schools[scuola]) schools[scuola] = [];
+    schools[scuola].push(row);
+  }
+
+  // Ordina le scuole per miglior posizione assoluta (media) tra le proprie opere
+  const sortedSchools = Object.keys(schools).sort((a, b) => {
+    const bestA = Math.min(...schools[a].map(r => rankByMediaMap[r.op.n] ?? Infinity));
+    const bestB = Math.min(...schools[b].map(r => rankByMediaMap[r.op.n] ?? Infinity));
+    return bestA - bestB;
+  });
+
+  const wrap = el('results-table-wrap');
+  wrap.innerHTML = '';
+
+  for (const scuola of sortedSchools) {
+    const rows = [...schools[scuola]].sort((a, b) => {
+      const ra = rankByMediaMap[a.op.n] ?? Infinity;
+      const rb = rankByMediaMap[b.op.n] ?? Infinity;
+      return ra - rb;
+    });
+
+    const section = document.createElement('div');
+    section.className = 'school-section';
+
+    const header = document.createElement('div');
+    header.className = 'school-header';
+    header.innerHTML = `
+      <span class="school-header-name">${escHtml(scuola)}</span>
+      <span class="school-count">${rows.length} ${rows.length === 1 ? 'opera' : 'opere'}</span>
+    `;
+
+    const table = document.createElement('table');
+    table.className = 'ranking';
+
+    const thead = document.createElement('thead');
+    const trHead = document.createElement('tr');
+    [
+      { label: '#',      title: 'Posizione assoluta in classifica (per media criteri). Il numero in grigio indica la posizione con bonus campionato.' },
+      { label: 'Opera',  title: 'Numero e titolo opera' },
+      { label: 'Media',  title: 'Media criteri' },
+      { label: 'Bonus',  title: 'Bonus campionato' },
+      { label: 'Totale', title: 'Punteggio finale' },
+      { label: 'Voti',   title: 'Numero giurati che hanno votato' },
+    ].forEach(({ label, title }) => {
+      const th = document.createElement('th');
+      th.textContent = label;
+      th.title = title;
+      trHead.appendChild(th);
+    });
+    thead.appendChild(trHead);
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+    for (const { op, score, nVoti } of rows) {
+      const tr = document.createElement('tr');
+      const rankM = rankByMediaMap[op.n] ?? null;
+      const rankT = rankByTotalMap[op.n] ?? null;
+
+      let rankCell;
+      if (rankM === null) {
+        rankCell = `<td class="rank-num score-na">—</td>`;
+      } else {
+        const rankClass = `rank-num rank-${rankM <= 3 ? rankM : ''}`;
+        let bonusSub = '';
+        if (rankT !== null && rankT !== rankM) {
+          const crossed10 = (rankT <= 10 && rankM > 10) ? ' rank-bonus-top10' : '';
+          bonusSub = `<span class="rank-media-sub${crossed10}" title="Posizione con bonus campionato">(${rankT})</span>`;
+        }
+        rankCell = `<td class="${rankClass}">${rankM}${bonusSub}</td>`;
+      }
+
+      tr.innerHTML = `
+        ${rankCell}
+        <td>
+          <span class="opera-n-badge">${op.n}</span>
+          <button class="opera-title-btn" onclick="openOperaModal(${op.n})">${escHtml(op.titolo)}</button>
+        </td>
+        <td class="score-cell">${score.media_criteri !== null ? fmt(score.media_criteri) : '<span class="score-na">—</span>'}</td>
+        <td class="score-cell">${fmt(score.bonus)}</td>
+        <td class="score-cell ${score.totale !== null ? 'score-final' : 'score-na'}">${score.totale !== null ? fmt(score.totale) : '—'}</td>
+        <td class="score-cell"><span class="n-votes-badge">${nVoti}</span></td>
+      `;
+      tbody.appendChild(tr);
+    }
+    table.appendChild(tbody);
+
+    section.appendChild(header);
+    section.appendChild(table);
+    wrap.appendChild(section);
+  }
 }
 
 // =============================================================================

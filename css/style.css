@@ -542,6 +542,51 @@ table.ranking tr:hover td     { background: #f9fafb; }
   color: var(--text-muted);
 }
 
+/* ---- Toggle vista ---- */
+.view-toggle {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  padding: 10px 16px 12px;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+}
+.view-btn {
+  padding: 5px 18px;
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  background: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.view-btn-active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+/* ---- Vista Per Liceo ---- */
+.school-section { margin-bottom: 20px; }
+
+.school-header {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.school-header-name { font-size: 13px; font-weight: 700; }
+.school-count { font-size: 12px; opacity: .65; }
+
+.school-section table.ranking {
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
 /* ============================================================
    RESPONSIVE — tablet/desktop
    ============================================================ */
