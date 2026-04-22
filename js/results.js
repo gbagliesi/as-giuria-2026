@@ -15,6 +15,7 @@ function setView(mode) {
   viewMode = mode;
   el('btn-view-generale').classList.toggle('view-btn-active', mode === 'generale');
   el('btn-view-liceo').classList.toggle('view-btn-active', mode === 'liceo');
+  el('btn-view-grafico').classList.toggle('view-btn-active', mode === 'grafico');
   renderTable();
 }
 
@@ -27,29 +28,52 @@ let cachedOpereMap = {};
 // =============================================================================
 // FORMULA DI PUNTEGGIO  (deve rispecchiare data/config.json)
 // =============================================================================
+function stdDev(vals) {
+  if (vals.length < 2) return 0;
+  const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
+  const sq   = vals.reduce((a, b) => a + (b - mean) ** 2, 0);
+  return Math.sqrt(sq / (vals.length - 1));
+}
+
 function computeScore(operaVotes, operaMeta, config) {
   let totalePesi = 0, sommaPesata = 0;
-  const criteri = {};
+  const criteri = {}, std_criteri = {};
 
   for (const c of config.criteri) {
     const vals = (operaVotes[c.id] || []).filter(v => v > 0);
     if (vals.length > 0) {
       const avg = vals.reduce((a, b) => a + b, 0) / vals.length;
-      criteri[c.id]  = avg;
-      sommaPesata   += avg * c.peso;
-      totalePesi    += c.peso;
+      criteri[c.id]     = avg;
+      std_criteri[c.id] = vals.length >= 2 ? stdDev(vals) : null;
+      sommaPesata       += avg * c.peso;
+      totalePesi        += c.peso;
     } else {
-      criteri[c.id] = null;
+      criteri[c.id]     = null;
+      std_criteri[c.id] = null;
     }
   }
 
   const media_criteri = totalePesi > 0 ? sommaPesata / totalePesi : null;
+
+  // Propagazione errori: σ_M = sqrt(Σ (w_c · σ_c)²) / Σ w_c
+  let std_media = null;
+  if (totalePesi > 0) {
+    let sumVarPesata = 0;
+    for (const c of config.criteri) {
+      if (criteri[c.id] !== null) {
+        const s = std_criteri[c.id] !== null ? std_criteri[c.id] : 0;
+        sumVarPesata += (c.peso * s) ** 2;
+      }
+    }
+    std_media = Math.sqrt(sumVarPesata) / totalePesi;
+  }
+
   const bonus = config.campionato.abilitato
     ? (operaMeta.campionato_max / config.campionato.divisore) * config.campionato.peso
     : 0;
   const totale = media_criteri !== null ? media_criteri + bonus : null;
 
-  return { criteri, media_criteri, bonus, totale };
+  return { criteri, std_criteri, media_criteri, std_media, bonus, totale };
 }
 
 // =============================================================================
@@ -157,7 +181,8 @@ function onSortClick(col) {
 // =============================================================================
 function renderTable() {
   if (!cachedConfig) return;
-  if (viewMode === 'liceo') { renderBySchool(); return; }
+  if (viewMode === 'liceo')   { renderBySchool(); return; }
+  if (viewMode === 'grafico') { renderChart();    return; }
 
   const config    = cachedConfig;
   const rankings  = sortRankings(cachedRankings, sortState.col, sortState.dir);
@@ -248,8 +273,12 @@ function renderTable() {
 
     const criteriaScores = config.criteri.map(c => {
       const v = score.criteri[c.id];
-      return `<td class="score-cell">${v !== null ? fmt(v) : '<span class="score-na">—</span>'}</td>`;
+      const s = score.std_criteri[c.id];
+      const stdSpan = (v !== null && s !== null) ? `<span class="score-std">±${s.toFixed(2)}</span>` : '';
+      return `<td class="score-cell">${v !== null ? fmt(v) + stdSpan : '<span class="score-na">—</span>'}</td>`;
     }).join('');
+    const stdMediaSpan = (score.media_criteri !== null && score.std_media !== null)
+      ? `<span class="score-std">±${score.std_media.toFixed(2)}</span>` : '';
 
     tr.innerHTML = `
       ${rankCell}
@@ -259,7 +288,7 @@ function renderTable() {
         <span class="opera-school-small">${escHtml(op.scuola || '')}</span>
       </td>
       ${criteriaScores}
-      <td class="score-cell">${score.media_criteri !== null ? fmt(score.media_criteri) : '<span class="score-na">—</span>'}</td>
+      <td class="score-cell">${score.media_criteri !== null ? fmt(score.media_criteri) + stdMediaSpan : '<span class="score-na">—</span>'}</td>
       <td class="score-cell">${fmt(score.bonus)}</td>
       <td class="score-cell ${score.totale !== null ? 'score-final' : 'score-na'}">${score.totale !== null ? fmt(score.totale) : '—'}</td>
       <td class="score-cell"><span class="n-votes-badge">${nVoti}</span></td>`;
@@ -389,6 +418,104 @@ function renderBySchool() {
     section.appendChild(table);
     wrap.appendChild(section);
   }
+}
+
+// =============================================================================
+// GRAFICO TOP 12
+// =============================================================================
+function renderChart() {
+  const wrap = el('results-table-wrap');
+  wrap.innerHTML = '';
+
+  const top12 = [...cachedRankings]
+    .filter(r => r.score.media_criteri !== null && r.nVoti > 0)
+    .sort((a, b) => b.score.media_criteri - a.score.media_criteri)
+    .slice(0, 12);
+
+  if (top12.length === 0) {
+    wrap.innerHTML = '<p style="text-align:center;color:#6b7280;padding:40px;">Nessun dato disponibile</p>';
+    return;
+  }
+
+  const sems   = top12.map(r => r.score.std_media !== null ? r.score.std_media / Math.sqrt(r.nVoti) : 0);
+  const scores = top12.map(r => r.score.media_criteri);
+  const rawMin = Math.min(...scores.map((s, i) => s - sems[i]));
+  const rawMax = Math.max(...scores.map((s, i) => s + sems[i]));
+  const pad    = Math.max(0.25, (rawMax - rawMin) * 0.18);
+  const yMin   = Math.max(0,  parseFloat((rawMin - pad).toFixed(1)));
+  const yMax   = Math.min(10, parseFloat((rawMax + pad + 0.1).toFixed(1)));
+
+  const mg = { top: 36, right: 24, bottom: 116, left: 66 };
+  const W = 860, H = 440;
+  const iW = W - mg.left - mg.right;
+  const iH = H - mg.top - mg.bottom;
+  const n  = top12.length;
+  const bW = iW / n;
+  const bI = bW * 0.52;
+
+  const sy = v => mg.top + iH - (v - yMin) / (yMax - yMin) * iH;
+  const sx = i => mg.left + i * bW + bW / 2;
+
+  // Y ticks
+  const rawStep = (yMax - yMin) / 5;
+  const step    = Math.max(0.1, parseFloat(rawStep.toFixed(1)));
+  const ticks   = [];
+  for (let t = yMin; t <= yMax + step * 0.01; t += step)
+    ticks.push(parseFloat(t.toFixed(2)));
+
+  const parts = [];
+
+  parts.push(`<rect x="0" y="0" width="${W}" height="${H}" fill="#fff" rx="12"/>`);
+
+  for (const tk of ticks) {
+    const y = sy(tk);
+    if (y < mg.top - 2 || y > mg.top + iH + 2) continue;
+    parts.push(`<line x1="${mg.left}" x2="${mg.left + iW}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#e5e7eb" stroke-width="1"/>`);
+    parts.push(`<text x="${mg.left - 8}" y="${(y + 4).toFixed(1)}" text-anchor="end" font-size="11" fill="#6b7280">${tk.toFixed(1)}</text>`);
+  }
+
+  const ymid = mg.top + iH / 2;
+  parts.push(`<text x="14" y="${ymid.toFixed(0)}" text-anchor="middle" font-size="11" fill="#6b7280" transform="rotate(-90 14 ${ymid.toFixed(0)})">Punteggio medio</text>`);
+
+  const barColors = ['#b8860b', '#757575', '#a0522d'];
+
+  for (let i = 0; i < n; i++) {
+    const { op, score, nVoti } = top12[i];
+    const x     = sx(i);
+    const y     = sy(score.media_criteri);
+    const yBase = sy(yMin);
+    const color = i < 3 ? barColors[i] : '#4f46e5';
+    const sem   = sems[i];
+    const cap   = 7;
+
+    parts.push(`<rect x="${(x - bI / 2).toFixed(1)}" y="${y.toFixed(1)}" width="${bI.toFixed(1)}" height="${Math.max(0, yBase - y).toFixed(1)}" fill="${color}" opacity="0.82" rx="3"/>`);
+
+    if (sem > 0.001) {
+      const yT = sy(score.media_criteri + sem);
+      const yB = sy(score.media_criteri - sem);
+      parts.push(`<line x1="${x.toFixed(1)}" x2="${x.toFixed(1)}" y1="${yT.toFixed(1)}" y2="${yB.toFixed(1)}" stroke="#374151" stroke-width="1.8"/>`);
+      parts.push(`<line x1="${(x - cap).toFixed(1)}" x2="${(x + cap).toFixed(1)}" y1="${yT.toFixed(1)}" y2="${yT.toFixed(1)}" stroke="#374151" stroke-width="1.8"/>`);
+      parts.push(`<line x1="${(x - cap).toFixed(1)}" x2="${(x + cap).toFixed(1)}" y1="${yB.toFixed(1)}" y2="${yB.toFixed(1)}" stroke="#374151" stroke-width="1.8"/>`);
+    }
+
+    parts.push(`<text x="${x.toFixed(1)}" y="${(y - 5).toFixed(1)}" text-anchor="middle" font-size="11" font-weight="700" fill="#374151">${score.media_criteri.toFixed(2)}</text>`);
+
+    const lbl = `${op.n} – ${op.titolo.length > 16 ? op.titolo.substring(0, 16) + '…' : op.titolo}`;
+    const lx  = x.toFixed(1);
+    const ly  = (mg.top + iH + 15).toFixed(1);
+    parts.push(`<text x="${lx}" y="${ly}" text-anchor="end" font-size="10" fill="#374151" transform="rotate(-40 ${lx} ${ly})">${escHtml(lbl)}</text>`);
+  }
+
+  parts.push(`<line x1="${mg.left}" x2="${mg.left}" y1="${mg.top}" y2="${mg.top + iH}" stroke="#9ca3af" stroke-width="1.5"/>`);
+  parts.push(`<line x1="${mg.left}" x2="${mg.left + iW}" y1="${mg.top + iH}" y2="${mg.top + iH}" stroke="#9ca3af" stroke-width="1.5"/>`);
+  parts.push(`<text x="${(W / 2).toFixed(0)}" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1a2e">Top 12 · Punteggio medio ± errore standard (σ/√n)</text>`);
+
+  const svg = `<svg viewBox="0 0 ${W} ${H}" style="width:100%;max-width:${W}px;display:block;margin:0 auto;overflow:visible;" xmlns="http://www.w3.org/2000/svg">${parts.join('')}</svg>`;
+
+  const container = document.createElement('div');
+  container.style.cssText = 'background:#fff;border-radius:12px;padding:16px;box-shadow:0 2px 12px rgba(0,0,0,.06);';
+  container.innerHTML = svg + `<p style="text-align:center;font-size:12px;color:#6b7280;margin-top:6px;">Barre di errore = σ/√n · Le prime 3 posizioni sono evidenziate (oro, argento, bronzo)</p>`;
+  wrap.appendChild(container);
 }
 
 // =============================================================================
